@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standar Pelayanan Publik - Dinas Sosial Kabupaten Mappi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .dropdown-menu {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px) scale(0.98);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a2647 0%, #144272 50%, #205295 100%);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .service-card {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+        }
+        .info-row {
+            transition: background-color 0.2s ease;
+        }
+        .info-row:hover {
+            background-color: rgba(20, 66, 114, 0.05);
+        }
+        .official-stamp {
+            border: 3px double #144272;
+        }
+    </style>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar - Header Rapi Flexbox -->
+    <header class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-6">
+
+            <!-- SISI KIRI: Logo & Teks Vertikal -->
+            <div class="flex flex-col items-start">
+                <img src="LOGO MAPPI.jpg" alt="Logo Mappi" class="h-14 w-auto mb-1 object-contain">
+                <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">PEMERINTAH KABUPATEN MAPPI</span>
+                <span class="text-lg font-bold text-blue-700 tracking-wide mt-1">DINAS SOSIAL</span>
+            </div>
+
+            <!-- SISI KANAN: Menu Navigasi (Flexbox Horizontal) -->
+            <nav class="hidden md:flex items-center gap-5 flex-shrink-0">
+                    <a href="index.html" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">Beranda</a>
+
+                    <!-- Profil Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all flex items-center gap-1">
+                            Profil <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-eye w-5 mr-2.5 text-blue-600"></i>Visi & Misi</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-sitemap w-5 mr-2.5 text-blue-600"></i>Struktur Organisasi</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-map-marked-alt w-5 mr-2.5 text-blue-600"></i>Wilayah Kerja</a>
+                        </div>
+                    </div>
+
+                    <!-- Standar Pelayanan Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-all font-semibold flex items-center gap-1">
+                            Standar Pelayanan <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="maklumat-pelayanan.html" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-file-contract w-5 mr-2.5 text-blue-600"></i>Maklumat Pelayanan</a>
+                            <a href="standar-pelayanan.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold"><i class="fas fa-clipboard-list w-5 mr-2.5 text-blue-600"></i>SOP / 14 Komponen SP</a>
+                        </div>
+                    </div>
+
+                    <!-- Layanan Publik Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all flex items-center gap-1">
+                            Layanan Publik <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-clipboard-check w-5 mr-2.5 text-blue-600"></i>Pengusulan Bansos</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-users w-5 mr-2.5 text-blue-600"></i>Layanan Sosial</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-search w-5 mr-2.5 text-blue-600"></i>Cek Status</a>
+                        </div>
+                    </div>
+
+                    <!-- Transparansi Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all flex items-center gap-1">
+                            Transparansi <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-chart-bar w-5 mr-2.5 text-blue-600"></i>Laporan SKM</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all"><i class="fas fa-balance-scale w-5 mr-2.5 text-blue-600"></i>LAKIP / Renstra</a>
+                        </div>
+                    </div>
+
+                    <!-- Pengaduan -->
+                    <a href="index.html#pengaduan" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all flex items-center gap-1">
+                        <i class="fas fa-comment-dots"></i> Pengaduan
+                    </a>
+            </nav>
+
+            <!-- MOBILE MENU TOGGLE -->
+            <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 shadow-lg">
+            <div class="px-4 py-3 space-y-1">
+                <a href="index.html" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all flex items-center gap-2">
+                    <i class="fas fa-home w-5 text-center"></i> Beranda
+                </a>
+                <details class="group">
+                    <summary class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 rounded-lg list-none flex justify-between items-center">
+                        <span class="flex items-center gap-2"><i class="fas fa-user-circle w-5"></i> Profil</span>
+                        <i class="fas fa-chevron-right group-open:rotate-90 transition-transform text-xs"></i>
+                    </summary>
+                    <div class="pl-6 mt-1 space-y-0.5">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Visi & Misi</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Struktur Organisasi</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Wilayah Kerja</a>
+                    </div>
+                </details>
+                <details class="group" open>
+                    <summary class="block px-4 py-2.5 text-sm font-medium text-blue-700 bg-blue-50 hover:bg-blue-50 rounded-lg list-none flex justify-between items-center">
+                        <span class="flex items-center gap-2"><i class="fas fa-star w-5"></i> Standar Pelayanan</span>
+                        <i class="fas fa-chevron-right group-open:rotate-90 transition-transform text-xs"></i>
+                    </summary>
+                    <div class="pl-6 mt-1 space-y-0.5">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Maklumat Pelayanan</a>
+                        <a href="standar-pelayanan.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold rounded-lg">SOP / 14 Komponen SP</a>
+                    </div>
+                </details>
+                <details class="group">
+                    <summary class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 rounded-lg list-none flex justify-between items-center">
+                        <span class="flex items-center gap-2"><i class="fas fa-handshake w-5"></i> Layanan Publik</span>
+                        <i class="fas fa-chevron-right group-open:rotate-90 transition-transform text-xs"></i>
+                    </summary>
+                    <div class="pl-6 mt-1 space-y-0.5">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Pengusulan Bansos</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Layanan Sosial</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Cek Status</a>
+                    </div>
+                </details>
+                <details class="group">
+                    <summary class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 rounded-lg list-none flex justify-between items-center">
+                        <span class="flex items-center gap-2"><i class="fas fa-eye w-5"></i> Transparansi</span>
+                        <i class="fas fa-chevron-right group-open:rotate-90 transition-transform text-xs"></i>
+                    </summary>
+                    <div class="pl-6 mt-1 space-y-0.5">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">Laporan SKM</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-700 rounded-lg">LAKIP / Renstra</a>
+                    </div>
+                </details>
+                <a href="index.html#pengaduan" class="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all flex items-center gap-2">
+                    <i class="fas fa-comment-dots w-5 text-center"></i> Pengaduan
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="max-w-4xl">
+                <div class="flex items-center gap-3 mb-4 fade-in-up">
+                    <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <i class="fas fa-star mr-1"></i> Standar Pelayanan Publik
+                    </span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 fade-in-up delay-100">
+                    Standar Pelayanan Publik<br>Dinas Sosial Kabupaten Mappi
+                </h1>
+                <p class="text-lg text-blue-100 mb-8 fade-in-up delay-200">
+                    Panduan lengkap Standar Operasional Prosedur (SOP) layanan sosial bermutu sesuai standar PEKPPP dan SIPP
+                </p>
+                <div class="flex flex-wrap gap-4 fade-in-up delay-300">
+                    <a href="#layanan" class="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl">
+                        <i class="fas fa-arrow-down"></i>
+                        Lihat Seluruh Layanan
+                    </a>
+                    <a href="#maklumat" class="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl">
+                        <i class="fas fa-file-alt"></i>
+                        Maklumat Pelayanan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maklumat Pelayanan Banner -->
+    <section id="maklumat" class="py-12 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-600 official-stamp text-center">
+                <!-- Logo & Header -->
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        DINSOS
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-lg font-bold text-blue-600">DINAS SOSIAL</h3>
+                        <p class="text-sm text-gray-500">KABUPATEN MAPPI</p>
+                        <p class="text-xs text-gray-400">Jl. Raya Mappi No. 123, Papua Selatan</p>
+                    </div>
+                </div>
+
+                <!-- Badge Resmi -->
+                <div class="inline-block bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-blue-300">
+                    <i class="fas fa-certificate mr-2"></i> MAKLUMAT PELAYANAN PUBLIK
+                </div>
+
+                <!-- Kalimat Pernyataan -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 md:p-8 mb-8">
+                    <p class="text-gray-800 text-sm md:text-base leading-relaxed font-medium">
+                        "DENGAN INI KAMI MENYATAKAN SANGGUP MENYELENGGARAKAN PELAYANAN SESUAI STANDAR PELAYANAN YANG TELAH DITETAPKAN DAN APABILA TIDAK MENEPATI JANJI INI, KAMI SIAP MENERIMA SANKSI SESUAI PERATURAN PERUNDANG-UNDANGAN YANG BERLAKU"
+                    </p>
+                </div>
+
+                <!-- Tanda Tangan & Tanggal -->
+                <div class="flex flex-col md:flex-row items-center md:items-end justify-between gap-4 border-t border-gray-200 pt-6">
+                    <div class="text-center md:text-left">
+                        <p class="text-sm text-gray-500 mb-6">Kepi, 04 Juni 2026</p>
+                        <p class="text-lg font-bold text-gray-800">Kepala Dinas Sosial<br>Kabupaten Mappi</p>
+                        <div class="mt-4">
+                            <div class="border-2 border-gray-400 rounded p-4 mb-2 h-24 flex items-center justify-center">
+                                <p class="text-gray-400 italic">(Paskalina Sumaghai, S.Sos.)</p>
+                            </div>
+                            <p class="text-sm font-medium text-gray-700">Paskalina Sumaghai, S.Sos.</p>
+                            <p class="text-xs text-gray-500">NIP. 199008122018032001</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="inline-block bg-green-100 text-green-700 px-6 py-3 rounded-xl border border-green-300">
+                            <p class="font-bold text-center">"Melayani Dengan Hati</p>
+                            <p class="font-bold text-center">Untuk Masyarakat"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Standar Pelayanan Utama -->
+    <section id="layanan" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Daftar Standar Pelayanan Utama</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Semua layanan diselenggarakan secara GRATIS / Rp 0 - Tanpa biaya administrasi</p>
+                <div class="mt-4 inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold border border-green-200">
+                    <i class="fas fa-check-circle"></i> Semua Layanan GRATIS
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- Layanan 1: Re-Aktifasi Kartu BPJS / PBI JKN -->
+                <div class="service-card bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                    <div class="p-6 bg-gradient-to-r from-blue-500 to-blue-600">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fab fa-apple-pay"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white">Re-Aktifasi Kartu BPJS / PBI JKN</h3>
+                                <p class="text-blue-100 text-sm">Pengaktifan kembali kartu BPJS kesehatan untuk penerima PBI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-file-signature text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Persyaratan:</span>
+                                    <p class="text-gray-600 text-sm">SKTM dari Kepala Kampung/Desa, Kartu BPJS non-aktif, FC KTP, FC KK</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Waktu Penanganan:</span>
+                                    <p class="text-gray-600 text-sm"><span class="text-green-600 font-bold">20 Menit</span> (setelah berkas lengkap)</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-check-circle text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Produk Pelayanan:</span>
+                                    <p class="text-gray-600 text-sm">Surat Rekomendasi / Pengaktifan BPJS</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 bg-green-50 rounded-lg p-3 flex items-center gap-2 border border-green-200">
+                                <i class="fas fa-money-bill-wave text-green-600 text-lg"></i>
+                                <span class="font-bold text-green-700">GRATIS / Rp 0</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-all shadow-sm flex-shrink-0">
+                                <i class="fas fa-file-pdf"></i> SOP PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 2: Bantuan Peti Jenazah -->
+                <div class="service-card bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                    <div class="p-6 bg-gradient-to-r from-gray-600 to-gray-700">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-urn"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white">Bantuan Peti Jenazah</h3>
+                                <p class="text-gray-300 text-sm">Bantuan pemulangan jenazah dari luar negeri ke Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-file-signature text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Persyaratan:</span>
+                                    <p class="text-gray-600 text-sm">Surat Permohonan Keluarga Duka, FC KTP Keluarga Duka, Surat Keterangan Kematian RS/Kepala Kampung</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Waktu Penanganan:</span>
+                                    <p class="text-gray-600 text-sm"><span class="text-green-600 font-bold">4 Jam 30 Menit</span> (setelah dokumen lengkap)</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-check-circle text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Produk Pelayanan:</span>
+                                    <p class="text-gray-600 text-sm">Penyerahan Peti Jenazah & Layanan Mobil Jenazah</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 bg-green-50 rounded-lg p-3 flex items-center gap-2 border border-green-200">
+                                <i class="fas fa-money-bill-wave text-green-600 text-lg"></i>
+                                <span class="font-bold text-green-700">GRATIS / Rp 0</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-600 text-white rounded-xl font-medium hover:bg-gray-700 transition-all shadow-sm flex-shrink-0">
+                                <i class="fas fa-file-pdf"></i> SOP PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 3: Bantuan Bahan Natura (Bama) -->
+                <div class="service-card bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                    <div class="p-6 bg-gradient-to-r from-yellow-500 to-yellow-600">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white">Bantuan Bahan Natura (Bama)</h3>
+                                <p class="text-yellow-100 text-sm">Bantuan bentuk barang fisik untuk keluarga miskin/korban bencana</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-file-signature text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Persyaratan:</span>
+                                    <p class="text-gray-600 text-sm">SKTM, Surat Keterangan Kematian, FC KTP/KK, Foto/Dokumentasi keadaan</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Waktu Penanganan:</span>
+                                    <p class="text-gray-600 text-sm"><span class="text-green-600 font-bold">4 Jam 30 Menit</span> (setelah verifikasi)</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-check-circle text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Produk Pelayanan:</span>
+                                    <p class="text-gray-600 text-sm">Penyerahan Bahan Natura + Berita Acara & Pakta Integritas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 bg-green-50 rounded-lg p-3 flex items-center gap-2 border border-green-200">
+                                <i class="fas fa-money-bill-wave text-green-600 text-lg"></i>
+                                <span class="font-bold text-green-700">GRATIS / Rp 0</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-yellow-600 text-white rounded-xl font-medium hover:bg-yellow-700 transition-all shadow-sm flex-shrink-0">
+                                <i class="fas fa-file-pdf"></i> SOP PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 4: Bantuan Sosial Lembaga Keagamaan -->
+                <div class="service-card bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                    <div class="p-6 bg-gradient-to-r from-purple-500 to-purple-600">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-church"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white">Bantuan Sosial Lembaga Keagamaan</h3>
+                                <p class="text-purple-100 text-sm">Dana bantuan untuk lembaga keagamaan dalam program bansos transfer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-file-signature text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Persyaratan:</span>
+                                    <p class="text-gray-600 text-sm">Proposal Permohonan & Berkas Kelengkapan Administrasi Lembaga</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Waktu Penanganan:</span>
+                                    <p class="text-gray-600 text-sm"><span class="text-green-600 font-bold">Sesuai Prosedur SK Bupati & DPA</span></p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-check-circle text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Produk Pelayanan:</span>
+                                    <p class="text-gray-600 text-sm">Pencairan Belanja Bansos Transfer Rekening Lembaga</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 bg-green-50 rounded-lg p-3 flex items-center gap-2 border border-green-200">
+                                <i class="fas fa-money-bill-wave text-green-600 text-lg"></i>
+                                <span class="font-bold text-green-700">GRATIS / Rp 0</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 transition-all shadow-sm flex-shrink-0">
+                                <i class="fas fa-file-pdf"></i> SOP PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 5: Alur Sanggah Desil -->
+                <div class="service-card bg-white rounded-2xl shadow-md border border-blue-200 overflow-hidden border-l-4 border-blue-600">
+                    <div class="p-6 bg-blue-50">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-xs font-medium">Verifikasi Data</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Alur Sanggah Desil (Warga Layak Bantuan)</h3>
+                                <p class="text-gray-600 text-sm">Proses penyamanan warga untuk mendapatkan bantuan sosial melalui musyawarah desa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-id-card text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Persyaratan:</span>
+                                    <p class="text-gray-600 text-sm">KTP dan KK Asli</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-list-ol text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Prosedur:</span>
+                                    <p class="text-gray-600 text-sm">
+                                        <ol class="list-decimal list-inside space-y-1 mt-1">
+                                            <li>Lapor Ke Desa/Dinsos</li>
+                                            <li>Isi Formulir Sanggah</li>
+                                            <li>Verifikasi Musdes/Muskel</li>
+                                            <li>Pemutakhiran Data SIKS-NG</li>
+                                        </ol>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 bg-green-50 rounded-lg p-3 flex items-center gap-2 border border-green-200">
+                                <i class="fas fa-money-bill-wave text-green-600 text-lg"></i>
+                                <span class="font-bold text-green-700">GRATIS / Rp 0</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-all shadow-sm flex-shrink-0">
+                                <i class="fas fa-file-pdf"></i> SOP PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 6: Pendaftaran DTKS / DTSEN -->
+                <div class="service-card bg-white rounded-2xl shadow-md border border-blue-200 overflow-hidden border-l-4 border-blue-600">
+                    <div class="p-6 bg-blue-50">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-xs font-medium">Data Terpadu</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Pendaftaran DTKS / DTSEN</h3>
+                                <p class="text-gray-600 text-sm">Pendaftaran Data Terpadu Keluarga Miskin & Data Sosial Ekonomi Nasional</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-3 mb-6">
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-id-card text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Persyaratan:</span>
+                                    <p class="text-gray-600 text-sm">KTP dan KK Asli (Warga Kurang Mampu)</p>
+                                </div>
+                            </div>
+                            <div class="info-row flex items-start gap-3 p-3 rounded-lg">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 flex-shrink-0 mt-1">
+                                    <i class="fas fa-list-ol text-sm"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Prosedur:</span>
+                                    <p class="text-gray-600 text-sm">
+                                        <ol class="list-decimal list-inside space-y-1 mt-1">
+                                            <li>Usulan Musdes/Muskel</li>
+                                            <li>Pendataan TKSK/Pencatatan Lapangan</li>
+                                            <li>Pengesahan Daerah</li>
+                                            <li>Penetapan Kemensos</li>
+                                        </ol>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex-1 bg-green-50 rounded-lg p-3 flex items-center gap-2 border border-green-200">
+                                <i class="fas fa-money-bill-wave text-green-600 text-lg"></i>
+                                <span class="font-bold text-green-700">GRATIS / Rp 0</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-all shadow-sm flex-shrink-0">
+                                <i class="fas fa-file-pdf"></i> SOP PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="mt-12 bg-blue-600 rounded-2xl p-6 md:p-8 text-white text-center">
+                <div class="max-w-3xl mx-auto">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <i class="fas fa-info-circle text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Semua Layanan Bersifat GRATIS</h3>
+                    <p class="text-blue-100 text-lg">Dinas Sosial Kabupaten Mappi tidak memungut biaya apapun dalam penyelenggaraan layanan publik ini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Pengaduan & Hotline Layanan -->
+    <section id="hotline" class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-phone text-white text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-4">Kontak Pengaduan & Hotline Layanan</h2>
+                <p class="text-gray-400">Hubungi kami untuk informasi layanan atau pengaduan</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Hotline Utama / Kadis -->
+                <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 hover:border-blue-500 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Hotline Utama / Kadis</h3>
+                            <p class="text-gray-400 text-sm">Kepala Dinas Sosial</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-blue-900/50 rounded-xl p-4">
+                        <i class="fas fa-phone text-blue-400 text-2xl"></i>
+                        <a href="tel:081248411308" class="text-2xl font-bold text-white no-underline">081248411308</a>
+                    </div>
+                </div>
+
+                <!-- Layanan Mobil Jenazah -->
+                <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 hover:border-green-500 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Layanan Mobil Jenazah</h3>
+                            <p class="text-gray-400 text-sm">Pemulangan & Pengantaran Jenazah</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-3 bg-green-900/50 rounded-xl p-3">
+                            <i class="fas fa-phone text-green-400 text-xl"></i>
+                            <a href="tel:082199335057" class="text-xl font-bold text-white no-underline">082199335057</a>
+                        </div>
+                        <div class="flex items-center gap-3 bg-green-900/50 rounded-xl p-3">
+                            <i class="fas fa-phone text-green-400 text-xl"></i>
+                            <a href="tel:081248422221" class="text-xl font-bold text-white no-underline">081248422221</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan Bahan Natura -->
+                <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 hover:border-yellow-500 transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Layanan Bahan Natura</h3>
+                            <p class="text-gray-400 text-sm">Bantuan Natura / Bama</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-yellow-900/50 rounded-xl p-4">
+                        <i class="fas fa-phone text-yellow-400 text-2xl"></i>
+                        <a href="tel:082385978809" class="text-2xl font-bold text-white no-underline">082385978809</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catatan Tegas -->
+            <div class="mt-8 bg-red-600 rounded-2xl p-6 flex items-start gap-4">
+                <i class="fas fa-exclamation-triangle text-2xl text-white flex-shrink-0"></i>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">⚠ CATATAN PENTING</h3>
+                    <p class="text-white text-lg"><strong>Semua Layanan Tidak Dipungut Biaya (Gratis)</strong></p>
+                    <p class="text-red-100 mt-2">Dinas Sosial Kabupaten Mappi menegaskan bahwa tidak ada biaya administrasi, pendaftaran, atau jasa apapun yang dipungut dari masyarakat dalam menggunakan layanan-layanan di atas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">DINAS SOSIAL</h4>
+                            <p class="text-blue-400 text-sm">Kabupaten Mappi</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Melayani masyarakat dengan pelayanan prima, transparan, dan akuntabel untuk mewujudkan kesejahteraan sosial di Kabupaten Mappi.
+                    </p>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Kontak Kami</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-white">Alamat</p>
+                                <p class="text-gray-400 text-sm">Jl. Raya Mappi No. 123, Kel. Mappi Kota, Kec. Mappi, Kabupaten Mappi, Papua Selatan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-phone text-blue-500 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-white">Telepon</p>
+                                <p class="text-gray-400 text-sm">(0961) 123456</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-envelope text-blue-500 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-white">Email</p>
+                                <p class="text-gray-400 text-sm">dinsos@mappi.go.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jam Operasional & Sosial Media -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Jam Operasional</h4>
+                    <div class="bg-gray-800 rounded-xl p-4 mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            <span class="font-medium text-white">Senin - Kamis</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">08.00 - 15.00 WIT</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-4 mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            <span class="font-medium text-white">Jumat</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">08.00 - 14.00 WIT</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 bg-gray-500 rounded-full"></span>
+                            <span class="font-medium text-white">Sabtu & Minggu</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">Libur</p>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-white font-bold text-lg mb-4">Follow Kami</h4>
+                        <div class="flex gap-3">
+                            <a href="#" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-all">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-600 hover:bg-green-700 rounded-lg flex items-center justify-center transition-all">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-600 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2026 Dinas Sosial Kabupaten Mappi. Hak cipta dilindungi undang-undang.
+                    </p>
+                    <div class="flex gap-4 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-all">Kebijakan Privasi</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-all">Syarat & Ketentuan</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-all">Peta Situs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for card animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+<a class="whatsapp-float" href="https://wa.me/6282131521299?text=Halo%20Dinas%20Sosial%20Kabupaten%20Mappi%2C%20saya%20ingin%20menyampaikan%20pengaduan%2Finformasi%20terkait%20layanan%20sosial." target="_blank" rel="noopener" aria-label="Pengaduan WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><div class="notice" style="margin:24px auto;max-width:1180px">WhatsApp Pengaduan Dinas Sosial Kabupaten Mappi: <a href="https://wa.me/6282131521299?text=Halo%20Dinas%20Sosial%20Kabupaten%20Mappi%2C%20saya%20ingin%20menyampaikan%20pengaduan%2Finformasi%20terkait%20layanan%20sosial." target="_blank" rel="noopener">0821-3152-1299</a> · Informasi pengaduan.</div></body>
+</html>
