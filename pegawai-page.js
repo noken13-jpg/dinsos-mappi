@@ -1,2 +1,32 @@
-const search=document.querySelector('#employee-search'),jabatan=document.querySelector('#employee-jabatan'),unit=document.querySelector('#employee-unit'),grid=document.querySelector('#employee-grid'),leaders=document.querySelector('#employee-leaders'),count=document.querySelector('#employee-count');let people=[];const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const photoMap={'Paskalina Sumaghai, S.Sos':'IBU KADIS.jpg','R. Markus E. Turlette, S.Sos, M,Si':'6131791918376096602.jpg','R. Markus E. Turlette, S.Sos, M.Si':'6131791918376096602.jpg','Yonatan Sulle, S.Sos':'6129531661771805710.jpg','Antonius Torop, S.AP':'Antonius Torop, S.AP.jpg','Antonius Torop, S.AP.':'Antonius Torop, S.AP.jpg','Kornely Sahulata, S.Pd':'Kornely Sahulata, S.Pd.jpg','Kornely Sahulata, S.Pd.':'Kornely Sahulata, S.Pd.jpg','Pacifikus A.D. Yermogoin, S.IP':'Pacifikus A.D. Yermogoin, S.IP.jpg','Pacifikus A.D. Yermogoin, S.IP.':'Pacifikus A.D. Yermogoin, S.IP.jpg','Paskalina Atonggar, S.Sos':'6129531661771805711.jpg','Agustinus Matcing, S.IP':'6138815276531782109.jpg','Sebastianus S. Ohoiledjaan, S.IP':'Fransiskus Xaverius Suryadi, S.IP.jpg','Simon, S.IP':'placeholder-asn.svg','KANISIUS KANI':'KANISIUS KANI.jpg','Kansius Kani':'KANISIUS KANI.jpg'};const photoFor=p=>photoMap[p.nama]||'placeholder-asn.svg';const initialsMap={'Paskalina Sumaghai, S.Sos':'PS','R. Markus E. Turlette, S.Sos, M,Si':'RM','R. Markus E. Turlette, S.Sos, M.Si':'RM','Yonatan Sulle, S.Sos':'YS','Antonius Torop, S.AP':'AT','Antonius Torop, S.AP.':'AT','Simon, S.IP':'S','Kornely Sahulata, S.Pd':'KS','Kornely Sahulata, S.Pd.':'KS','Pacifikus A.D. Yermogoin, S.IP':'PA','Pacifikus A.D. Yermogoin, S.IP.':'PA','Paskalina Atonggar, S.Sos':'PA','Agustinus Matcing, S.IP':'AM','Sebastianus S. Ohoiledjaan, S.IP':'SO','KANISIUS KANI':'KK','Kansius Kani':'KK'};const initialsFor=p=>initialsMap[p.nama]||p.nama.split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase();function card(p,leader=false){const visual=leader?`<div class="employee-initial w-28 h-28 rounded-full bg-blue-600/20 border-4 border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-2xl mb-4 mx-auto" aria-label="Inisial ${esc(p.nama)}">${esc(initialsFor(p))}</div>`:`<img class="employee-photo w-28 h-28 rounded-full object-cover border-4 border-blue-500/30 mb-4 shadow-xl" src="${esc(photoFor(p))}" alt="Foto ${esc(p.nama)}" loading="lazy" onerror="this.onerror=null;this.src='placeholder-asn.svg'">`;return `<article class="employee-card ${leader?'leader':''}">${visual}<h3>${esc(p.nama)}</h3><p class="role">${esc(p.jabatan)}</p><p class="nip">NIP ${esc(p.nip)}</p><a class="detail-link" href="pegawai-detail.html?no=${encodeURIComponent(p.no)}">Lihat Profil <i class="fa-solid fa-arrow-right"></i></a></article>`}
-function render(){const q=(search?.value||'').toLowerCase();const j=jabatan?.value||'';const result=people.filter(p=>(!j||p.jabatan===j)&&`${p.nama} ${p.nip} ${p.jabatan}`.toLowerCase().includes(q));const kasieNames=new Set(['Pacifikus A.D. Yermogoin, S.IP','Paskalina Atonggar, S.Sos','Agustinus Matcing, S.IP','Sebastianus S. Ohoiledjaan, S.IP','Kansius Kani']);const kasiePeople=result.filter(p=>kasieNames.has(p.nama));const leadership=result.filter(p=>/kepala|sekretaris|kasubag|kepala bidang/i.test(p.jabatan)&&!kasiePeople.includes(p));const structural=[...leadership,...kasiePeople];leaders.innerHTML=structural.map(p=>card(p,true)).join('')||'<p class="notice employee-empty">Tidak ada pejabat struktural yang cocok dengan filter.</p>';grid.innerHTML=result.filter(p=>!structural.includes(p)).map(p=>card(p)).join('')||'<p class="notice employee-empty">Pegawai tidak ditemukan.</p>';count.textContent=`Menampilkan ${result.length} dari ${people.length} pegawai`;document.querySelector('#total-employees').textContent=people.length}fetch('pegawai.json').then(r=>r.json()).then(data=>{people=data;[...new Set(data.map(p=>p.jabatan))].sort().forEach(v=>jabatan.insertAdjacentHTML('beforeend',`<option value="${esc(v)}">${esc(v)}</option>`));render()});[search,jabatan].forEach(x=>x?.addEventListener('input',render));
+// pegawai-page.js
+// Kode logika JavaScript untuk mengatur interaksi, pencarian nama, atau fungsi filter kategori pegawai
+
+// Fungsi untuk mencari pegawai berdasarkan nama
+function searchPegawai(name) {
+  // Kode untuk mencari pegawai berdasarkan nama
+  // ...
+}
+
+// Fungsi untuk mengfilter pegawai berdasarkan kategori
+function filterPegawai(category) {
+  // Kode untuk mengfilter pegawai berdasarkan kategori
+  // ...
+}
+
+// Fungsi untuk mengisi konten pegawai
+function populatePegawaiContent() {
+  // Kode untuk mengisi konten pegawai
+  // ...
+}
+
+// Event listener untuk form pencarian
+document.getElementById('search').addEventListener('input', function(event) {
+  // Kode untuk mencari pegawai berdasarkan nama
+  searchPegawai(event.target.value);
+});
+
+// Event listener untuk filter kategori
+document.getElementById('filter-category').addEventListener('change', function(event) {
+  // Kode untuk mengfilter pegawai berdasarkan kategori
+  filterPegawai(event.target.value);
+});
