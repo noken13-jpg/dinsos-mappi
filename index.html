@@ -1,175 +1,69 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Publik - Dinas Sosial Kabupaten Mappi</title>
-    <!-- Menggunakan Tailwind CSS untuk desain modern -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemerintah Kabupaten Mappi - Dinas Sosial</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-800">
-
-    <!-- Header / Navbar -->
-    <header class="bg-blue-900 text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <!-- Logo Kabupaten Mappi (Pastikan file logo bernama 'logo.png' dan berada di folder yang sama, atau ubah namanya sesuai file logomu) -->
-                <img src="LOGO MAPPI.jpg" alt="Logo Kabupaten Mappi" class="w-10 h-10 object-contain">
-                <div class="flex flex-col">
-                    <span class="text-xs text-blue-200 tracking-wider">PEMERINTAH KABUPATEN MAPPI</span>
-                    <span class="font-bold text-lg leading-tight">DINAS SOSIAL</span>
-                </div>
-            </div>
-            <nav class="space-x-6 text-sm hidden md:block">
-    <a href="index.html" class="hover:text-blue-200">Beranda</a>
-    <a href="data-kinerja.html" class="hover:text-blue-200">Data Kinerja</a>
-    <a href="layanan-sop.html" class="hover:text-blue-200">Layanan & SOP</a>
-    <a href="admin.html" class="hover:text-blue-200">Internal (Admin)</a>
-</nav>
-        </div>
-    </header>
-
-    <!-- Banner Utama (Diperbarui dengan Latar Belakang Gambar) -->
-    <section class="relative w-full h-[400px] md:h-[500px] bg-cover bg-center" style="background-image: url('Kota Rawah.jpg');">
-        <!-- Lapisan gelap agar teks tetap terbaca -->
-        <div class="absolute inset-0 bg-blue-900/70 md:bg-black/60"></div>
-        
-        <!-- Konten Teks di Atas Gambar -->
-        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-3xl md:text-5xl font-bold mb-4">Portal Layanan & Kinerja Digital Dinas Sosial</h1>
-            <p class="text-base md:text-xl max-w-3xl mx-auto">Transparansi data pelayanan kesejahteraan sosial, dokumentasi kegiatan, dan informasi publik Kabupaten Mappi.</p>
-        </div>
-    </section>
-
-    <!-- Bagian Insight Performance Dashboard -->
-    <main class="max-w-7xl mx-auto px-4 py-10">
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold text-slate-900">Insight Performance Dashboard</h2>
-            <p class="text-sm text-slate-500">Terhubung | Transparan | Akuntabel</p>
-        </div>
-
-        <!-- Grid Kartu Statistik Agregat -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <!-- Kartu 1 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <div class="text-blue-600 font-semibold text-sm mb-1">TOTAL PENERIMA MANFAAT (KPM)</div>
-                <div class="text-3xl font-extrabold text-slate-900">8.862</div>
-                <p class="text-xs text-slate-500 mt-2">Terdata aktif dalam sistem periode berjalan</p>
-            </div>
-            <!-- Kartu 2 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <div class="text-emerald-600 font-semibold text-sm mb-1">LAYANAN & VERIFIKASI</div>
-                <div class="text-3xl font-bold text-slate-900">100%</div>
-                <p class="text-xs text-slate-500 mt-2">Proses verifikasi data reguler terlaksana</p>
-            </div>
-            <!-- Kartu 3 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <div class="text-amber-600 font-semibold text-sm mb-1">WILAYAH CAKUPAN</div>
-                <div class="text-3xl font-bold text-slate-900">Distrik / Desa</div>
-                <p class="text-xs text-slate-500 mt-2">Distribusi pelayanan sosial merata</p>
-            </div>
-        </div>
-
-        <!-- Bagian Dokumentasi / Menu Tambahan -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <h3 class="font-bold text-lg mb-2">Dokumentasi & Galeri Kegiatan</h3>
-                <p class="text-sm text-slate-600 mb-4">Informasi seputar musyawarah desa (Musdes) dan penyaluran bantuan sosial langsung.</p>
-                <a href="#" class="text-blue-600 font-medium text-sm hover:underline">Lihat Selengkapnya &rarr;</a>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <h3 class="font-bold text-lg mb-2">Sistem Integrasi SIKSI-NG</h3>
-                <p class="text-sm text-slate-600 mb-4">Akses khusus pengelola untuk verifikasi transaksi dan klarifikasi data bansos.</p>
-                <a href="#" class="text-blue-600 font-medium text-sm hover:underline">Masuk ke Portal Internal &rarr;</a>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-6 mt-12 text-center text-sm">
-        <p>&copy; 2026 Dinas Sosial Kabupaten Mappi. All rights reserved.</p>
-    </footer>
-
-<!-- Chat Widget Floating Button -->
-<div id="chat-widget" class="fixed bottom-5 right-5 z-50">
-    <!-- Tombol Buka Chat -->
-    <button onclick="toggleChat()" class="bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition flex items-center justify-center text-xl">
-        💬
-    </button>
-    
-    <!-- Kotak Jendela Chat -->
-    <div id="chat-box" class="hidden bg-white w-80 md:w-96 h-[450px] rounded-2xl shadow-2xl border border-slate-200 flex flex-col absolute bottom-16 right-0 overflow-hidden">
-        <!-- Header Chat -->
-        <div class="bg-blue-900 text-white p-3 font-semibold flex justify-between items-center">
-            <span class="flex items-center gap-2">🤖 Asisten AI Dinas Sosial</span>
-            <button onclick="toggleChat()" class="text-white hover:text-red-300 font-bold px-2">✕</button>
-        </div>
-        
-        <!-- Ruang Pesan -->
-        <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-3 text-sm bg-slate-50">
-            <div class="bg-blue-100 text-blue-950 p-3 rounded-xl max-w-[85%]">
-                Halo! Ada yang bisa saya bantu terkait informasi layanan atau data publik Dinas Sosial Kabupaten Mappi?
-            </div>
-        </div>
-        
-        <!-- Input & Tombol Kirim -->
-        <div class="p-3 border-t border-slate-200 bg-white flex gap-2">
-            <input type="text" id="user-input" placeholder="Ketik pertanyaan..." class="flex-1 border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-blue-700 transition">Kirim</button>
-        </div>
+<body>
+  <!-- Header -->
+  <header class="bg-gray-200 p-4 flex justify-between">
+    <a href="#" class="flex items-center">
+      <img src="logo.png" alt="Logo" width="50">
+      PEMERINTAH KABUPATEN MAPPI - DINAS SOSIAL
+    </a>
+    <nav class="flex justify-end">
+      <ul class="flex">
+        <li><a href="index.html" class="mr-4">Beranda</a></li>
+        <li><a href="data-kinerja.html" class="mr-4">Data Kinerja</a></li>
+        <li><a href="layanan-sop.html" class="mr-4">Layanan & SOP</a></li>
+        <li><a href="admin.html" class="mr-4">Internal</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Banner/Hero -->
+  <section class="bg-cover" style="background-image: url('Kota Rawah.jpg');">
+    <div class="bg-gray-900/50 p-4 text-white">
+      <h1 class="text-3xl">Portal Layanan & Kinerja Digital Dinas Sosial</h1>
     </div>
-</div>
-
-<!-- Skrip JavaScript untuk Koneksi ke Ollama -->
-<script>
-    function toggleChat() {
-        const box = document.getElementById('chat-box');
-        box.classList.toggle('hidden');
-    }
-
-    function handleKeyPress(e) {
-        if (e.key === 'Enter') sendMessage();
-    }
-
-    async function sendMessage() {
-        const input = document.getElementById('user-input');
-        const messages = document.getElementById('chat-messages');
-        const text = input.value.trim();
-        if (!text) return;
-
-        // Tampilkan pesan user
-        messages.innerHTML += `<div class="bg-blue-600 text-white p-3 rounded-xl max-w-[85%] ml-auto shadow-sm">${text}</div>`;
-        input.value = '';
-        messages.scrollTop = messages.scrollHeight;
-
-        // Tampilkan indikator loading
-        const loadingId = 'loading-' + Date.now();
-        messages.innerHTML += `<div id="${loadingId}" class="bg-slate-200 text-slate-700 p-3 rounded-xl max-w-[85%] animate-pulse">Sedang berpikir...</div>`;
-        messages.scrollTop = messages.scrollHeight;
-
-        try {
-            // Kirim permintaan HTTP POST ke API lokal Ollama
-            const response = await fetch('http://localhost:11434/api/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model: 'llama3',
-                    messages: [{ role: 'user', content: text }],
-                    stream: false
-                })
-            });
-            
-            const data = await response.json();
-            document.getElementById(loadingId).remove();
-            
-            const reply = data.message ? data.message.content : 'Maaf, respons tidak valid.';
-            messages.innerHTML += `<div class="bg-white border border-slate-200 text-slate-800 p-3 rounded-xl max-w-[85%] shadow-sm">${reply}</div>`;
-        } catch (err) {
-            document.getElementById(loadingId).remove();
-            messages.innerHTML += `<div class="bg-red-100 text-red-700 p-3 rounded-xl max-w-[85%]">Gagal terhubung ke server Ollama lokal. Pastikan servis aktif di port 11434.</div>`;
-        }
-        messages.scrollTop = messages.scrollHeight;
-    }
-</script>
+  </section>
+  
+  <!-- Konten -->
+  <section class="py-12">
+    <div class="flex flex-wrap justify-center">
+      <div class="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4">
+        <div class="bg-white shadow-md p-4">
+          <h2 class="text-lg">Total KPM 8.862</h2>
+        </div>
+      </div>
+      <div class="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4">
+        <div class="bg-white shadow-md p-4">
+          <h2 class="text-lg">Layanan 100%</h2>
+        </div>
+      </div>
+      <div class="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-4">
+        <div class="bg-white shadow-md p-4">
+          <h2 class="text-lg">Wilayah Cakupan Distrik/Desa</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Floating Chat Widget -->
+  <div class="fixed bottom-4 right-4">
+    <div class="bg-white p-4 shadow-md">
+      <script src="https://cdn.jsdelivr.net/npm/ollama@1.2.0/dist/ollama.min.js"></script>
+      <script>
+        Ollama.init();
+      </script>
+    </div>
+  </div>
 </body>
 </html>
