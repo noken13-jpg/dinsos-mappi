@@ -1,92 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinas Sosial Kabupaten Mappi</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <style>
-    .hero {
-      @apply bg-slate-950;
-      backdrop-blur-lg;
-    }
-    .hero-image {
-      @apply w-full h-48 object-cover rounded-t-lg;
-      opacity: 0.5;
-    }
-    .card {
-      @apply bg-white/10 p-4;
-      backdrop-blur-lg;
-      border border-white/20;
-      transition: all duration-300;
-      hover:scale-105 hover:bg-white/20;
-    }
-    .card:hover {
-      @apply scale-105;
-    }
-    .footer {
-      @apply flex justify-center py-4;
-    }
-  </style>
-</head>
-<body class="bg-slate-950">
-  <header class="sticky top-0 bg-slate-900 p-4">
-    <nav class="flex justify-between">
-      <ul class="flex">
-        <li class="mr-4">
-          <a href="#" class="text-white">Data Kinerja</a>
-        </li>
-        <li class="mr-4">
-          <a href="#" class="text-white">Layanan & SOP</a>
-        </li>
-        <li>
-          <a href="#" class="text-white">Direktori Pegawai</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main class="container mx-auto p-4">
-    <section class="hero relative">
-      <img src="images/Kota Rawah.jpg" class="hero-image absolute top-0 left-0 w-full h-48 object-cover 
-rounded-t-lg opacity-0.5">
-      <h1 class="text-3xl text-white font-bold text-center">Dinas Sosial Kabupaten Mappi</h1>
-      <p class="text-white text-lg text-center">Selamat Datang di Portal Dinas Sosial Kabupaten Mappi</p>
-      <img src="images/hero_pegawai.jpg" class="absolute top-0 left-0 w-48 h-48 object-cover rounded-full 
-opacity-0.5">
-    </section>
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="card">
-        <h2 class="text-emerald-400 text-lg font-bold">Data Kinerja</h2>
-        <p class="text-white text-sm">Lihat laporan kinerja tahunan Dinas Sosial Kabupaten Mappi</p>
-      </div>
-      <div class="card">
-        <h2 class="text-emerald-400 text-lg font-bold">Layanan & SOP</h2>
-        <p class="text-white text-sm">Akses informasi layanan dan standar operasional prosedur Dinas 
-Sosial Kabupaten Mappi</p>
-      </div>
-      <div class="card">
-        <h2 class="text-emerald-400 text-lg font-bold">Direktori Pegawai</h2>
-        <p class="text-white text-sm">Lihat daftar pegawai Dinas Sosial Kabupaten Mappi</p>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <p class="text-white text-sm">Dinas Sosial Kabupaten Mappi</p>
-    <a href="https://wa.me/082131521299" class="text-emerald-400 hover:text-yellow-400 transition-colors 
-duration-300"><i class="fa-solid fa-whatsapp"></i></a>
-    <p class="text-white text-sm">Email: 
-[info@dinas-sosial-mappi.id](mailto:info@dinas-sosial-mappi.id)</p>
-  </footer>
-</body>
-</html><!DOCTYPE html>
-<html lang="id">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Dinas Sosial Kabupaten Mappi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Efek Liquid Glass khusus untuk panel dashboard */
         .glass-panel {
             background: rgba(15, 23, 42, 0.45);
             backdrop-filter: blur(16px);
@@ -109,7 +28,6 @@ duration-300"><i class="fa-solid fa-whatsapp"></i></a>
             transform: translateY(-2px);
         }
 
-        /* Desain Scrollbar ala Dashboard Pro */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
@@ -152,8 +70,8 @@ duration-300"><i class="fa-solid fa-whatsapp"></i></a>
             
             <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/20 rounded-full blur-[30px] -mr-10 -mt-10"></div>
-                <h2 class="text-3xl font-bold text-white mb-2 leading-tight">Selamat Datang di <br><span class="text-emerald-400">Pusat Data</span></h2>
-                <p class="text-sm text-gray-400 mb-6">Akses layanan publik, SOP, dan direktori kepegawaian Dinas Sosial Kabupaten Mappi secara terpusat dan *real-time*.</p>
+                <h2 class="text-3xl font-extrabold text-white mb-2 leading-tight">Dinas Sosial <br><span class="text-emerald-400">Kabupaten Mappi</span></h2>
+                <p class="text-sm text-gray-400 mb-6">Portal Layanan Digital Terpadu. Akses layanan publik, SOP, dan direktori kepegawaian secara terpusat dan *real-time*.</p>
                 
                 <div class="flex flex-col gap-3">
                     <a href="layanan-sop.html" class="glass-button text-center text-white font-bold px-6 py-3 rounded-xl">
@@ -220,7 +138,6 @@ duration-300"><i class="fa-solid fa-whatsapp"></i></a>
                     <p class="text-xs text-gray-400">100% Gratis</p>
                 </div>
             </div>
-
         </div>
 
     </main>
