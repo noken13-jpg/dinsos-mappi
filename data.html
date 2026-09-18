@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data DTSEN - Dinas Sosial Kabupaten Mappi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-panel { background: rgba(15, 23, 42, 0.55); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
+        .glass-button { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2)); border: 1px solid rgba(16, 185, 129, 0.4); transition: all 0.3s ease; }
+        .glass-button:hover { background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(6, 182, 212, 0.5)); border-color: rgba(16, 185, 129, 0.8); transform: translateY(-2px); }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-950 text-gray-200 font-sans antialiased h-screen overflow-hidden flex flex-col relative">
+
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-slate-950/85 z-10"></div>
+        <img src="images/Kota Rawah.jpg" alt="Background" class="w-full h-full object-cover blur-[2px] opacity-70">
+    </div>
+
+    <!-- Topbar Navigation -->
+    <header class="relative z-50 glass-panel shrink-0">
+        <div class="px-6 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="images/logo.png" alt="Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" onerror="this.style.display='none'">
+                <div>
+                    <h1 class="font-extrabold text-xl text-white tracking-wider">DINSOS <span class="text-emerald-400">MAPPI</span></h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-2 text-sm font-medium">
+                <a href="index.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Beranda</a>
+                <a href="profil.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Profil</a>
+                <a href="layanan-sop.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Layanan Publik</a>
+                <a href="data.html" class="glass-button text-emerald-400 px-4 py-2 rounded-lg">Data DTSEN</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex-grow p-6 overflow-y-auto flex flex-col gap-6">
+        
+        <!-- Header Halaman -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 glass-panel rounded-2xl p-6 border-l-4 border-emerald-500">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-1">Pusat Data Tunggal Sosial Ekonomi (DTSEN)</h2>
+                <p class="text-sm text-gray-400">Rekapitulasi data terpadu kesejahteraan sosial Kabupaten Mappi.</p>
+            </div>
+            <a href="https://cekbansos.kemensos.go.id/" target="_blank" class="glass-button text-emerald-400 font-semibold px-5 py-2 rounded-lg text-sm">
+                🔍 Cek Bansos Warga
+            </a>
+        </div>
+
+        <!-- Grid Statistik -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-500/20 rounded-full blur-[20px] -mr-5 -mt-5"></div>
+                <h3 class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Total KPM Aktif</h3>
+                <p class="text-4xl font-extrabold text-white mb-2">12.450 <span class="text-lg text-gray-500 font-medium">Jiwa</span></p>
+                <p class="text-xs text-emerald-400 flex items-center gap-1"><span>📈</span> Tervalidasi SIKS-NG</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-emerald-500/20 rounded-full blur-[20px] -mr-5 -mt-5"></div>
+                <h3 class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Penerima PBI-JKN</h3>
+                <p class="text-4xl font-extrabold text-white mb-2">8.230 <span class="text-lg text-gray-500 font-medium">Jiwa</span></p>
+                <p class="text-xs text-emerald-400 flex items-center gap-1"><span>🏥</span> Jaminan Kesehatan</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-amber-500/20 rounded-full blur-[20px] -mr-5 -mt-5"></div>
+                <h3 class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Usulan Baru (Bulan Ini)</h3>
+                <p class="text-4xl font-extrabold text-white mb-2">145 <span class="text-lg text-gray-500 font-medium">KK</span></p>
+                <p class="text-xs text-amber-400 flex items-center gap-1"><span>⏳</span> Sedang Diproses</p>
+            </div>
+            
+        </div>
+
+        <!-- Informasi Tambahan -->
+        <div class="glass-panel rounded-2xl p-6 flex-grow">
+            <h3 class="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">Informasi Publikasi Data</h3>
+            <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                Data Tunggal Sosial Ekonomi (DTSEN) dikelola secara terpusat dan berjenjang mulai dari tingkat Kampung, Distrik, hingga Kabupaten. Pemutakhiran data dilakukan melalui musyawarah kampung dan diinput ke dalam aplikasi SIKS-NG agar penyaluran bantuan sosial tepat sasaran.
+            </p>
+            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                <p class="text-xs text-gray-400 italic">
+                    * Catatan: Angka di atas merupakan rekapitulasi data agregat. Untuk perlindungan privasi sesuai peraturan perundang-undangan, data pribadi/by-name by-address (BNBA) hanya dapat diakses melalui portal internal atau langsung ke kantor Dinas Sosial Kabupaten Mappi.
+                </p>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
