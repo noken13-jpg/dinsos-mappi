@@ -1,108 +1,29 @@
+```html
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Resmi - Dinas Sosial Kabupaten Mappi</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda Dinas Sosial Kabupaten Mappi</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-    <!-- Header & Navigasi Utama -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="Logo Mappi" class="w-10 h-10 object-contain" onerror="this.style.display='none'">
-                <span class="font-bold text-lg md:text-xl text-blue-900 tracking-tight">DINAS SOSIAL KABUPATEN MAPPI</span>
-            </a>
-            <nav class="flex flex-wrap items-center gap-4 md:gap-6 mt-3 md:mt-0 font-medium text-sm md:text-base">
-                <a href="index.html" class="text-blue-600 hover:text-blue-800 transition">Beranda</a>
-                <a href="data-pegawai.html" class="text-gray-600 hover:text-blue-600 transition">Data Pegawai</a>
-                <a href="layanan-sop.html" class="text-gray-600 hover:text-blue-600 transition">Layanan & SOP</a>
-                <a href="dashboard-internal.html" class="bg-blue-900 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-800 transition">Portal Internal</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section dengan Background Kota Rawah -->
-    <section class="relative bg-cover bg-center py-28 md:py-36 text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/Kota Rawah.jpg');">
-        <div class="container mx-auto px-6 text-center">
-            <span class="bg-blue-600 text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full mb-4 inline-block">Portal Resmi Pemerintah</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Dinas Sosial Kabupaten Mappi</h1>
-            <p class="text-base md:text-xl mb-8 max-w-2xl mx-auto text-gray-200">Portal Layanan Publik & Kinerja Digital – Bersama Membangun Kesejahteraan Sosial</p>
-            
-            <!-- Tombol Navigasi & Kembali ke Dashboard -->
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="layanan-sop.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-200">
-                    📄 Layanan & SOP
-                </a>
-                <a href="data-pegawai.html" class="bg-white hover:bg-gray-100 text-blue-900 font-semibold px-6 py-3 rounded-xl shadow-lg transition duration-200">
-                    👥 Direktori Pegawai
-                </a>
-                <a href="index.html" class="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-xl shadow-lg border border-gray-700 transition duration-200">
-                    🏠 Kembali ke Dashboard
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Access Menu Cards -->
-    <section class="container mx-auto px-6 -mt-12 relative z-10 mb-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition border-t-4 border-blue-600">
-                <h3 class="text-xl font-bold text-blue-900 mb-2">📊 Data Kinerja & KPM</h3>
-                <p class="text-gray-600 text-sm mb-4">Informasi transparan jumlah Keluarga Penerima Manfaat (KPM) dan progres bantuan sosial daerah.</p>
-                <a href="layanan-sop.html" class="text-blue-600 font-semibold text-sm hover:underline">Lihat Detail &rarr;</a>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition border-t-4 border-green-600">
-                <h3 class="text-xl font-bold text-blue-900 mb-2">📋 Layanan & SOP</h3>
-                <p class="text-gray-600 text-sm mb-4">Panduan pengusulan DTSEN/SIKS-NG, PBI-JKN, serta persyaratan administrasi bantuan sosial.</p>
-                <a href="layanan-sop.html" class="text-green-600 font-semibold text-sm hover:underline">Akses Layanan &rarr;</a>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition border-t-4 border-amber-500">
-                <h3 class="text-xl font-bold text-blue-900 mb-2">👥 Direktori Pejabat</h3>
-                <p class="text-gray-600 text-sm mb-4">Profil pimpinan, kepala bidang, serta struktur kepegawaian resmi Dinas Sosial Kabupaten Mappi.</p>
-                <a href="data-pegawai.html" class="text-amber-600 font-semibold text-sm hover:underline">Buka Direktori &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Resmi & Kontak Layanan -->
-    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-                <h4 class="text-white font-bold text-lg mb-3">Dinas Sosial Kabupaten Mappi</h4>
-                <p class="text-sm text-gray-400 mb-2">Kabupaten Mappi, Provinsi Papua Selatan.</p>
-                <p class="text-sm font-semibold text-green-400 bg-green-950/50 inline-block px-3 py-1 rounded-full border border-green-800">
-                    ✨ Semua Layanan Tidak Dipungut Biaya (Gratis)
-                </p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-lg mb-3">Layanan Pengaduan & Informasi</h4>
-                <p class="text-sm mb-2 flex items-center gap-2">
-                    <span>📞 WhatsApp Call Center:</span> 
-                    <a href="https://wa.me/6282131521299" target="_blank" class="text-green-400 font-bold hover:underline">0821 3152 1299</a>
-                </p>
-                <p class="text-sm flex items-center gap-2">
-                    <span>📧 Email Resmi:</span> 
-                    <a href="mailto:dinsoskabupatenmappi@gmail.com" class="text-blue-400 hover:underline">dinsoskabupatenmappi@gmail.com</a>
-                </p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-lg mb-3">Navigasi Cepat</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="index.html" class="hover:text-white transition">Beranda Utama</a></li>
-                    <li><a href="layanan-sop.html" class="hover:text-white transition">Standar Operasional Prosedur (SOP)</a></li>
-                    <li><a href="data-pegawai.html" class="hover:text-white transition">Data Nominatif Pegawai</a></li>
-                    <li><a href="dashboard-internal.html" class="hover:text-white transition">Portal Internal Admin</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container mx-auto px-6 text-center text-xs text-gray-500 border-t border-gray-800 pt-6">
-            &copy; 2026 Dinas Sosial Kabupaten Mappi. All rights reserved.
-        </div>
-    </footer>
-
+<body class="bg-gray-100">
+  <header class="bg-gray-800 py-4">
+    <nav class="container mx-auto p-4 flex justify-between">
+      <a href="#" class="text-white">Dinas Sosial Kabupaten Mappi</a>
+      <ul class="flex justify-end">
+        <li class="mr-4">
+          <a href="#" class="text-white">Layanan & SOP</a>
+        </li>
+        <li class="mr-4">
+          <a href="#" class="text-white">Direktori Pegawai</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container mx-auto p-4">
+    <!-- Tampilkan konten utama beranda -->
+  </main>
 </body>
 </html>
+```
