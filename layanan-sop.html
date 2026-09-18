@@ -1,87 +1,122 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layanan Sop - Dinas Sosial Kabupaten Mappi</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Publik & SOP - Dinas Sosial Kabupaten Mappi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-button {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(6, 182, 212, 0.5));
+            border-color: rgba(16, 185, 129, 0.8);
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(16,185,129,0.5); }
+    </style>
 </head>
-<body>
-  <!-- Header & Menu Navigasi -->
-  <header class="bg-gray-200 p-4 flex justify-between">
-    <a href="#" class="flex items-center">
-      <img src="logo.png" alt="Logo" width="50">
-      PEMERINTAH KABUPATEN MAPPI - DINAS SOSIAL
-    </a>
-    <nav class="flex justify-end">
-      <ul class="flex">
-        <li><a href="index.html" class="mr-4">Beranda</a></li>
-        <li><a href="data-kinerja.html" class="mr-4">Data Kinerja</a></li>
-        <li><a href="layanan-sop.html" class="mr-4">Layanan & SOP</a></li>
-        <li><a href="admin.html" class="mr-4">Internal</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="bg-slate-950 text-gray-200 font-sans antialiased h-screen overflow-hidden flex flex-col relative">
 
-  <!-- Judul Utama -->
-  <section class="bg-white p-12">
-    <h1 class="text-3xl">Bidang Jaminan Sosial & Pengelolaan Data Terpadu Kesejahteraan Sosial Nasional 
-(DTSEN / SIKS-NG)</h1>
-  </section>
-
-  <!-- Bagian Landasan Hukum / Undang-Undang Bantuan Sosial -->
-  <section class="bg-white p-12">
-    <h2 class="text-2xl">Landasan Hukum</h2>
-    <p class="text-lg">UU/Permendagri/Peraturan Menteri Sosial tentang pengelolaan fakir miskin, data 
-terpadu, dan penyaluran bansos yang transparan dan tepat sasaran.</p>
-  </section>
-
-  <!-- Bagian Alur & Syarat Pengusulan Warga -->
-  <section class="bg-white p-12">
-    <h2 class="text-2xl">Alur & Syarat Pengusulan Warga</h2>
-    <div class="bg-white p-4 shadow-md">
-      <h3 class="text-lg">Syarat Dokumen Wajib:</h3>
-      <ul>
-        <li>Membawa KTP dan Kartu Keluarga (KK) asli yang valid.</li>
-      </ul>
-      <h3 class="text-lg">Ketentuan 4 Sudut Foto Kondisi Rumah:</h3>
-      <ul>
-        <li>1. Foto Tampak Depan Rumah</li>
-        <li>2. Foto Ruang Tamu</li>
-        <li>3. Foto Area Dapur</li>
-        <li>4. Foto Kamar Mandi</li>
-      </ul>
-      <h3 class="text-lg">Tahapan Proses:</h3>
-      <ol>
-        <li>Mulai dari kelengkapan dokumen & foto rumah</li>
-        <li>Musyawarah Desa (Musdes) / Berita Acara</li>
-        <li>Input data ke aplikasi SIKS-NG Desa</li>
-        <li>Verifikasi, persetujuan, dan pengesahan oleh Dinas Sosial Kabupaten</li>
-      </ol>
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-slate-950/85 z-10"></div>
+        <img src="images/Kota Rawah.jpg" alt="Background" class="w-full h-full object-cover blur-[2px] opacity-70">
     </div>
-  </section>
 
-  <!-- Desain Tampilan -->
-  <section class="bg-white p-12">
-    <div class="flex flex-wrap justify-center">
-      <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
-        <div class="bg-white shadow-md p-4">
-          <h3 class="text-lg">Semua Layanan Tidak Dipungut Biaya (Gratsi)</h3>
-          <p class="text-lg">Call Center resmi: 021-1234-5678</p>
+    <header class="relative z-50 glass-panel shrink-0">
+        <div class="px-6 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="images/logo.png" alt="Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" onerror="this.style.display='none'">
+                <div>
+                    <h1 class="font-extrabold text-xl text-white tracking-wider">DINSOS <span class="text-emerald-400">MAPPI</span></h1>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Portal Resmi Pemerintah</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-2 text-sm font-medium">
+                <a href="index.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Beranda</a>
+                <a href="profil.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Profil</a>
+                <a href="layanan-sop.html" class="glass-button text-emerald-400 px-4 py-2 rounded-lg">Layanan Publik</a>
+                <a href="data.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Data DTKS</a>
+                <a href="berita.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Berita</a>
+            </nav>
         </div>
-      </div>
-      <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
-        <div class="bg-white shadow-md p-4">
-          <h3 class="text-lg">Tahapan Proses:</h3>
-          <ol>
-            <li>Mulai dari kelengkapan dokumen & foto rumah</li>
-            <li>Musyawarah Desa (Musdes) / Berita Acara</li>
-            <li>Input data ke aplikasi SIKS-NG Desa</li>
-            <li>Verifikasi, persetujuan, dan pengesahan oleh Dinas Sosial Kabupaten</li>
-          </ol>
+    </header>
+
+    <main class="relative z-10 flex-grow p-6 overflow-y-auto flex flex-col md:flex-row gap-6">
+        
+        <div class="w-full md:w-1/4 flex flex-col gap-4">
+            <div class="glass-panel rounded-2xl p-5">
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/10 pb-2">Kategori Layanan</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="block px-3 py-2 bg-emerald-500/20 text-emerald-400 rounded border border-emerald-500/30">DTSEN / SIKS-NG</a></li>
+                    <li><a href="#" class="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors">Rekomendasi PBI-JKN</a></li>
+                    <li><a href="#" class="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors">Rehabilitasi Sosial</a></li>
+                    <li><a href="#" class="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors">Pemberdayaan Sosial</a></li>
+                </ul>
+            </div>
+            
+            <a href="index.html" class="glass-panel text-center text-gray-400 hover:text-white py-3 rounded-xl text-sm transition-colors border-transparent hover:border-white/20">
+                &larr; Kembali ke Dashboard
+            </a>
         </div>
-      </div>
-    </div>
-  </section>
+
+        <div class="w-full md:w-3/4 flex flex-col gap-6">
+            
+            <div class="glass-panel rounded-2xl p-6 md:p-8">
+                <div class="inline-block bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/30 mb-4">
+                    Standar Operasional Prosedur (SOP)
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Bidang Jaminan Sosial & Pengelolaan Data Terpadu (DTSEN / SIKS-NG)</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-emerald-400 mb-2 flex items-center gap-2"><span>⚖️</span> Landasan Hukum</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10">
+                        UU / Permendagri / Peraturan Menteri Sosial tentang pengelolaan fakir miskin, data terpadu, dan penyaluran bansos yang transparan dan tepat sasaran.
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-emerald-400 mb-2 flex items-center gap-2"><span>📋</span> Alur & Syarat Pengusulan Warga</h3>
+                    <div class="bg-white/5 p-5 rounded-xl border border-white/10">
+                        <h4 class="font-medium text-white mb-3">Syarat Dokumen Wajib:</h4>
+                        <ul class="list-disc list-inside text-gray-300 text-sm space-y-2 ml-2">
+                            <li>Membawa KTP asli yang valid.</li>
+                            <li>Membawa Kartu Keluarga (KK) asli.</li>
+                            <li>Ketentuan 4 Sudut Foto Kondisi Rumah (Depan, Belakang, Samping Kanan, Samping Kiri).</li>
+                            <li>Surat Pengantar dari RT/RW atau Kepala Kampung setempat.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 border-t border-white/10 pt-6">
+                    <button class="glass-button text-white px-6 py-2 rounded-lg text-sm font-medium">
+                        📥 Download PDF Syarat
+                    </button>
+                    <button class="bg-white/5 border border-white/10 text-gray-300 hover:text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        🖨️ Cetak Halaman
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
 </body>
 </html>

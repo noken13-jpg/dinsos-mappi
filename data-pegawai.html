@@ -1,51 +1,125 @@
-<<!DOCTYPE html>
-<html lang="id" dir="ltr">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Pegawai Dinas Sosial Kabupaten Mappi</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direktori Pegawai - Dinas Sosial Kabupaten Mappi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-button {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(6, 182, 212, 0.5));
+            border-color: rgba(16, 185, 129, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Desain Scrollbar Tabel */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(16,185,129,0.5); }
+    </style>
 </head>
-<body class="bg-gray-100">
-  <header class="bg-gray-800 py-4">
-    <nav class="container mx-auto p-4 flex justify-between">
-      <a href="#" class="text-white">Dinas Sosial Kabupaten Mappi</a>
-      <ul class="flex justify-end">
-        <li class="mr-4">
-          <a href="#" class="text-white">← Kembali ke Beranda</a>
-        </li>
-        <li>
-          <a href="https://wa.me/082131521299" class="text-white">
-            <i class="fa-solid fa-whatsapp"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold">Daftar Pegawai Dinas Sosial Kabupaten Mappi</h1>
-    <table class="table w-full">
-      <thead>
-        <tr>
-          <th class="px-4 py-2">Nama</th>
-          <th class="px-4 py-2">NIP</th>
-          <th class="px-4 py-2">Jabatan</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="px-4 py-2">Nama 1</td>
-          <td class="px-4 py-2">1234567890</td>
-          <td class="px-4 py-2">Struktural</td>
-        </tr>
-        <tr>
-          <td class="px-4 py-2">Nama 2</td>
-          <td class="px-4 py-2">9876543210</td>
-          <td class="px-4 py-2">Pegawai</td>
-        </tr>
-        <!-- Tambahkan baris tabel lainnya -->
-      </tbody>
-    </table>
-  </main>
+<body class="bg-slate-950 text-gray-200 font-sans antialiased h-screen overflow-hidden flex flex-col relative">
+
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-slate-950/85 z-10"></div>
+        <img src="images/Kota Rawah.jpg" alt="Background" class="w-full h-full object-cover blur-[2px] opacity-70">
+    </div>
+
+    <header class="relative z-50 glass-panel shrink-0">
+        <div class="px-6 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="images/logo.png" alt="Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" onerror="this.style.display='none'">
+                <div>
+                    <h1 class="font-extrabold text-xl text-white tracking-wider">DINSOS <span class="text-emerald-400">MAPPI</span></h1>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Portal Resmi Pemerintah</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-2 text-sm font-medium">
+                <a href="index.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Beranda</a>
+                <a href="profil.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Profil</a>
+                <a href="layanan-sop.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Layanan Publik</a>
+                <a href="data.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Data DTKS</a>
+                <a href="berita.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Berita</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex-grow p-6 overflow-y-auto flex flex-col gap-6">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 glass-panel rounded-2xl p-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-1">Direktori Pegawai</h2>
+                <p class="text-sm text-gray-400">Daftar nama dan jabatan struktural Dinas Sosial Kabupaten Mappi.</p>
+            </div>
+            <a href="index.html" class="glass-button text-emerald-400 font-semibold px-5 py-2 rounded-lg text-sm">
+                &larr; Kembali
+            </a>
+        </div>
+
+        <div class="glass-panel rounded-2xl overflow-hidden flex-grow flex flex-col">
+            <div class="overflow-x-auto flex-grow">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-white/5 text-emerald-400 text-sm uppercase tracking-widest border-b border-white/10">
+                            <th class="p-4 font-semibold">No</th>
+                            <th class="p-4 font-semibold">Nama Lengkap</th>
+                            <th class="p-4 font-semibold">NIP</th>
+                            <th class="p-4 font-semibold">Jabatan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300 text-sm divide-y divide-white/5">
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-4">1</td>
+                            <td class="p-4 font-medium text-white">Nama Kepala Dinas, S.Sos., M.Si</td>
+                            <td class="p-4 font-mono text-gray-400">19700101 199001 1 001</td>
+                            <td class="p-4"><span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs border border-emerald-500/30">Kepala Dinas</span></td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-4">2</td>
+                            <td class="p-4 font-medium text-white">Nama Sekretaris, S.IP</td>
+                            <td class="p-4 font-mono text-gray-400">19750202 199502 2 002</td>
+                            <td class="p-4">Sekretaris Dinas</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-4">3</td>
+                            <td class="p-4 font-medium text-white">Nama Kepala Bidang, SE</td>
+                            <td class="p-4 font-mono text-gray-400">19800303 200003 1 003</td>
+                            <td class="p-4">Kabid Pemberdayaan Sosial</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-4">4</td>
+                            <td class="p-4 font-medium text-white">Nama Kepala Bidang 2, S.Kom</td>
+                            <td class="p-4 font-mono text-gray-400">19850404 200504 2 004</td>
+                            <td class="p-4">Kabid Rehabilitasi Sosial</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-4">5</td>
+                            <td class="p-4 font-medium text-white">Nama Staff, S.AP</td>
+                            <td class="p-4 font-mono text-gray-400">19900505 201005 1 005</td>
+                            <td class="p-4 text-gray-400">Staff Data Terpadu</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
 </body>
 </html>
