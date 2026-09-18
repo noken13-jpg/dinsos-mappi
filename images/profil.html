@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Dinas Sosial Kabupaten Mappi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-panel { background: rgba(15, 23, 42, 0.55); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
+        .glass-button { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2)); border: 1px solid rgba(16, 185, 129, 0.4); transition: all 0.3s ease; }
+        .glass-button:hover { background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(6, 182, 212, 0.5)); border-color: rgba(16, 185, 129, 0.8); transform: translateY(-2px); }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-950 text-gray-200 font-sans antialiased h-screen overflow-hidden flex flex-col relative">
+
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-slate-950/85 z-10"></div>
+        <img src="images/Kota Rawah.jpg" alt="Background" class="w-full h-full object-cover blur-[2px] opacity-70">
+    </div>
+
+    <header class="relative z-50 glass-panel shrink-0">
+        <div class="px-6 py-4 flex flex-wrap justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="images/logo.png" alt="Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" onerror="this.style.display='none'">
+                <div>
+                    <h1 class="font-extrabold text-xl text-white tracking-wider">DINSOS <span class="text-emerald-400">MAPPI</span></h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-2 text-sm font-medium">
+                <a href="index.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Beranda</a>
+                <a href="profil.html" class="glass-button text-emerald-400 px-4 py-2 rounded-lg">Profil</a>
+                <a href="layanan-sop.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Layanan Publik</a>
+                <a href="data-pegawai.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Data Pegawai</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex-grow p-6 overflow-y-auto flex flex-col md:flex-row gap-6">
+        
+        <div class="w-full md:w-1/3 flex flex-col gap-6">
+            <div class="glass-panel rounded-2xl p-6 text-center relative overflow-hidden border-t-4 border-t-emerald-500">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-[40px] -mr-10 -mt-10"></div>
+                <div class="w-24 h-24 mx-auto bg-slate-800 rounded-full border-4 border-emerald-500/50 mb-4 flex items-center justify-center text-4xl overflow-hidden shadow-lg">
+                    👩🏽‍💼
+                </div>
+                <h3 class="text-xl font-bold text-white uppercase tracking-wide">Paskalina Sumaghai, S.Sos</h3>
+                <p class="text-emerald-400 font-semibold text-sm mb-4">Kepala Dinas Sosial</p>
+                <div class="bg-white/5 rounded-lg p-3 text-left border border-white/10 text-xs text-gray-300 space-y-2">
+                    <p><span class="text-gray-500">NIP:</span><br> 19780409 199712 2 001</p>
+                    <p><span class="text-gray-500">Pangkat/Gol:</span><br> Pembina / IVa</p>
+                </div>
+            </div>
+            
+            <a href="index.html" class="glass-panel text-center text-gray-400 hover:text-white py-3 rounded-xl text-sm transition-colors border-transparent hover:border-white/20">
+                &larr; Kembali ke Dashboard
+            </a>
+        </div>
+
+        <div class="w-full md:w-2/3 flex flex-col gap-6">
+            
+            <div class="glass-panel rounded-2xl p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-white mb-4 border-b border-white/10 pb-3 flex items-center gap-3">
+                    <span>🏛️</span> Sejarah Singkat
+                </h2>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Dinas Sosial Kabupaten Mappi secara resmi berdiri sejak <strong class="text-emerald-400">Agustus 2008</strong>. Sejak awal pembentukannya, instansi ini terus berkomitmen menjadi garda terdepan pemerintah daerah dalam mewujudkan kesejahteraan sosial, merangkul masyarakat rentan, dan memastikan keadilan sosial bagi seluruh warga di Kabupaten Mappi.
+                </p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-3">Visi & Misi</h2>
+                <div class="mb-6">
+                    <h3 class="text-emerald-400 font-semibold mb-2">Visi:</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed italic bg-white/5 p-4 rounded-xl border border-white/5">
+                        "Mewujudkan Masyarakat Kabupaten Mappi yang Sejahtera, Mandiri, dan Berkeadilan Sosial."
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-emerald-400 font-semibold mb-2">Misi:</h3>
+                    <ul class="list-decimal list-inside text-gray-300 text-sm space-y-2 ml-2">
+                        <li>Memberikan pelayanan sosial yang cepat, tepat sasaran, dan inklusif.</li>
+                        <li>Mewujudkan perlindungan dan jaminan sosial yang terpadu.</li>
+                        <li>Mendorong kemandirian ekonomi dan sosial masyarakat, serta potensi relawan.</li>
+                        <li>Menata tata kelola (Good Governance) dan pengelolaan Data Terpadu (DTKS).</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="glass-panel rounded-2xl p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-3">Tugas Pokok & Fungsi</h2>
+                <p class="text-gray-300 text-sm mb-4">
+                    Membantu Bupati dalam melaksanakan urusan pemerintahan yang menjadi kewenangan Daerah Kabupaten Mappi di bidang sosial. Fungsi Dinas Sosial meliputi:
+                </p>
+                <ul class="list-disc list-inside text-gray-300 text-sm space-y-2 ml-2">
+                    <li>Perumusan kebijakan teknis bidang pemberdayaan, rehabilitasi, dan jaminan sosial.</li>
+                    <li>Penyelenggaraan pelayanan dasar bagi PPKS (Pemerlu Pelayanan Kesejahteraan Sosial).</li>
+                    <li>Pemeliharaan dan validasi Data Terpadu Kesejahteraan Sosial (DTKS) melalui SIKS-NG.</li>
+                    <li>Pembinaan organisasi dan pilar-pilar sosial kemasyarakatan.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
