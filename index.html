@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Resmi Dinas Sosial Kabupaten Mappi</title>
 
-    <!-- Google Fonts: Playfair Display (Elegan Berwibawa) & Inter (Tingkat Keterbacaan Tinggi) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -31,12 +31,24 @@
             letter-spacing: 0.5px;
         }
 
-        /* Panel Kaca Elegan (Glassmorphism Gelap Berwibawa) */
+        /* Panel Kaca Mewah (Glassmorphism Gelap Berwibawa) */
         .glass-charismatic {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(10, 17, 30, 0.94) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(212, 175, 55, 0.28);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.7);
         }
 
         /* Tombol Emas Elegan */
@@ -48,6 +60,25 @@
         .btn-gold:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.55);
+        }
+
+        /* Animasi Logo Berputar Setiap 6 Detik */
+        @keyframes spinLogo3D {
+            0% {
+                transform: perspective(600px) rotateY(0deg);
+            }
+            18% {
+                transform: perspective(600px) rotateY(360deg);
+            }
+            100% {
+                transform: perspective(600px) rotateY(360deg);
+            }
+        }
+
+        .logo-rotate-pulse {
+            animation: spinLogo3D 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
         }
 
         ::-webkit-scrollbar { width: 6px; } 
@@ -73,7 +104,7 @@
                         id="logoDaerah"
                         src="images/logo_mappi.jpg" 
                         alt="Logo Resmi Kabupaten Mappi" 
-                        class="w-full h-full object-contain"
+                        class="w-full h-full object-contain logo-rotate-pulse"
                         onerror="gantiJalurLogo(this)"
                     >
                 </div>
@@ -96,16 +127,15 @@
         </div>
     </header>
 
-    <!-- Konten Utama (Hero Section) -->
-    <main class="relative z-10 flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
-        <section class="max-w-4xl w-full glass-charismatic rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden">
-            
-            <!-- Slogan Baku Instansi -->
+    <!-- Konten Utama Halaman -->
+    <main class="relative z-10 flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 flex flex-col gap-12">
+        
+        <!-- Hero Section Berwibawa -->
+        <section class="max-w-4xl w-full mx-auto glass-charismatic rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden mt-4">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs tracking-widest uppercase mb-6 font-sans font-medium">
                 Integritas • Pelayanan • Kesejahteraan
             </div>
 
-            <!-- Judul Utama Elegan Berwibawa -->
             <h1 class="font-elegant text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-wide leading-tight mb-3">
                 Selamat Datang di Portal Resmi
             </h1>
@@ -117,7 +147,6 @@
                 Mewujudkan masyarakat Kabupaten Mappi yang sejahtera, mandiri, dan berkeadilan sosial melalui penyelenggaraan pelayanan publik yang transparan, tepat sasaran, akuntabel, dan inklusif.
             </p>
 
-            <!-- Tombol Aksi Baku -->
             <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
                 <a href="layanan-sop.html" class="btn-gold w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-slate-950 font-bold text-xs uppercase tracking-widest font-sans">
                     Pusat Layanan
@@ -126,16 +155,114 @@
                     Cek Data DTSEN
                 </a>
             </div>
-
         </section>
+
+        <!-- Breaking News & Galeri Kegiatan Lapangan (Permintaan Ibu Kadis) -->
+        <section class="flex flex-col gap-6">
+            
+            <!-- Judul Seksi Kegiatan -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-amber-500/20 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-amber-400 animate-ping"></span>
+                    <h3 class="font-elegant text-xl sm:text-2xl font-bold text-white tracking-wide">
+                        Kilas Informasi & Kegiatan Sosial Terkini
+                    </h3>
+                </div>
+                <span class="text-xs uppercase tracking-widest text-amber-300/80 font-sans">Dokumentasi Pelayanan Publik 2026</span>
+            </div>
+
+            <!-- Tiga Kartu Dokumentasi Visual -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Kartu Berita 1 -->
+                <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
+                        <img 
+                            src="images/Kota Rawah.jpg" 
+                            alt="Verifikasi Lapangan" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='Kota Rawah.jpg';"
+                        >
+                        <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                            Penyaluran Bantuan
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] text-gray-400 font-sans">Wilayah Kabupaten Mappi • Terkini</span>
+                            <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
+                                Monitoring dan Verifikasi Lapangan Calon Penerima Bantuan Sosial Terpadu
+                            </h4>
+                        </div>
+                        <p class="text-xs text-gray-400 font-sans line-clamp-2">
+                            Tim teknis dinas sosial melaksanakan peninjauan data langsung untuk menjamin keakuratan penerima manfaat.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Kartu Berita 2 -->
+                <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
+                        <img 
+                            src="images/ibu_kadis.jpg" 
+                            alt="Arahan Pimpinan" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='CONTOH FOTO RUMAH DAN ...jpg';"
+                        >
+                        <span class="absolute top-3 left-3 bg-emerald-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                            Kebijakan Publik
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] text-gray-400 font-sans">Aula Dinas Sosial • Terkini</span>
+                            <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
+                                Penguatan Tata Kelola Data Kesejahteraan Sosial Bersama Seluruh Kepala Bidang
+                            </h4>
+                        </div>
+                        <p class="text-xs text-gray-400 font-sans line-clamp-2">
+                            Rapat koordinasi berkala guna mematangkan validasi data DTSEN di seluruh distrik Kabupaten Mappi.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Kartu Berita 3 -->
+                <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
+                        <img 
+                            src="CONTOH FOTO RUMAH DAN ...jpg" 
+                            alt="Program Rehabilitasi" 
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='images/Kota Rawah.jpg';"
+                        >
+                        <span class="absolute top-3 left-3 bg-cyan-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                            Rehabilitasi Sosial
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] text-gray-400 font-sans">Layanan Lapangan • Terkini</span>
+                            <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
+                                Peninjauan Kelayakan Hunian dan Asistensi Sosial Disabilitas & Lanjut Usia
+                            </h4>
+                        </div>
+                        <p class="text-xs text-gray-400 font-sans line-clamp-2">
+                            Layanan proaktif jemput bola dalam pendataan warga rentan yang membutuhkan bantuan kedaruratan.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- Kaki Laman (Footer Baku) -->
-    <footer class="relative z-10 border-t border-amber-500/10 py-5 text-center text-xs text-gray-400 font-sans">
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-amber-500/10 py-6 text-center text-xs text-gray-500 font-sans mt-8">
         <p>&copy; 2026 Dinas Sosial Kabupaten Mappi. Seluruh Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- Skrip Pencarian Otomatis Jalur Logo -->
+    <!-- Skrip Pengalih Jalur Logo Cadangan -->
     <script>
         const daftarJalur = [
             'images/logo_mappi.jpg',
