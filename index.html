@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Resmi Dinas Sosial Kabupaten Mappi</title>
 
+    <!-- Konfigurasi SEO Resmi Pencarian Google -->
+    <meta name="description" content="Portal Resmi Dinas Sosial Kabupaten Mappi. Pusat pelayanan publik, verifikasi data DTSEN, penyaluran bantuan sosial, serta dokumentasi kegiatan dinas.">
+    <meta name="keywords" content="Dinas Sosial Mappi, Dinsos Mappi, Kabupaten Mappi, Pemerintah Kabupaten Mappi, DTSEN Mappi, Bansos Mappi, Pelayanan Publik Mappi">
+    <meta name="author" content="Pemerintah Kabupaten Mappi - Dinas Sosial">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dinsos-mappi.vercel.app/">
+
+    <!-- Konfigurasi Pratinjau WhatsApp & Media Sosial (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dinsos-mappi.vercel.app/">
+    <meta property="og:title" content="Dinas Sosial Kabupaten Mappi - Portal Resmi">
+    <meta property="og:description" content="Portal Resmi Dinas Sosial Kabupaten Mappi. Mewujudkan pelayanan publik yang transparan, tepat sasaran, dan akuntabel.">
+    <meta property="og:image" content="https://dinsos-mappi.vercel.app/images/logo_mappi.jpg">
+
     <!-- Google Fonts: Playfair Display, Cinzel, Inter, dan Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +48,7 @@
 
         /* Panel Kaca Elegan (Glassmorphism Gelap Berwibawa) */
         .glass-charismatic {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(10, 17, 30, 0.94) 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(10, 17, 30, 0.95) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(212, 175, 55, 0.28);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.12);
@@ -159,7 +173,7 @@
             </div>
         </section>
 
-        <!-- BAGIAN 2: KILAS INFORMASI & KEGIATAN SOSIAL TERKINI (TERHUBUNG KE GOOGLE SHEETS) -->
+        <!-- BAGIAN 2: KILAS INFORMASI & KEGIATAN SOSIAL TERKINI (DINAMIS DARI GOOGLE SHEETS) -->
         <section class="flex flex-col gap-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-amber-500/20 pb-4">
                 <div class="flex items-center gap-3">
@@ -242,7 +256,7 @@
                         <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-slate-800 shadow">
                             <img 
                                 src="images/R. Markus E. Turlette, S.Sos, M,Si.jpg" 
-                                alt="R. Markus E. Turlette, S.Sos, M,Si" 
+                                alt="R. Markus E. Turlette, S.Sos., M.Si." 
                                 class="w-full h-full object-cover" 
                                 onerror="this.src='https://ui-avatars.com/api/?name=Markus+Turlette&background=d97706&color=fff';"
                             >
@@ -382,7 +396,7 @@
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Kesejahteraan Anak & Lansia</span>
-                            <h6 class="text-xs font-bold text-white">Ricarda Yiptem, S.IP</h6>
+                            <h6 class="text-xs font-bold text-white">Richarda Yiptem, S.IP</h6>
                             <span class="text-[10px] text-gray-400 font-mono">19830325 200909 2 001</span>
                         </div>
                     </div>
@@ -493,7 +507,7 @@
 
             } catch (error) {
                 console.error("Gagal menarik data berita:", error);
-                // Tampilan cadangan jika API belum merespons
+                // Berita cadangan otomatis jika koneksi lambat
                 container.innerHTML = `
                     <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
                         <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
