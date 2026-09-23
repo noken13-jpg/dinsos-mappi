@@ -3,360 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direktori Pegawai - Dinas Sosial Kabupaten Mappi</title>
+    <title>Portal Resmi Dinas Sosial Kabupaten Mappi</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .glass-panel { background: rgba(15, 23, 42, 0.55); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
-        .glass-button { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2)); border: 1px solid rgba(16, 185, 129, 0.4); transition: all 0.3s ease; }
-        .glass-button:hover { background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(6, 182, 212, 0.5)); border-color: rgba(16, 185, 129, 0.8); transform: translateY(-2px); }
-        ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel { 
+            background: rgba(15, 23, 42, 0.75); 
+            backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+        }
+        .glow-border {
+            box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
+        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; } 
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-950 text-gray-200 font-sans antialiased h-screen overflow-hidden flex flex-col relative">
+<body class="bg-slate-950 text-gray-200 antialiased min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-slate-950/85 z-10"></div>
-        <img src="images/Kota Rawah.jpg" alt="Background" class="w-full h-full object-cover blur-[2px] opacity-70">
+    <!-- Latar Belakang & Lapisan Overlay -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950 z-10"></div>
+        <img src="images/Kota Rawah.jpg" alt="Latar Belakang Mappi" class="w-full h-full object-cover blur-[3px] opacity-40">
     </div>
 
-    <!-- Topbar Navigation -->
-    <header class="relative z-50 glass-panel shrink-0">
-        <div class="px-6 py-4 flex flex-wrap justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full border border-emerald-500/50 overflow-hidden bg-slate-800 flex items-center justify-center shadow-md shrink-0">
-                    <img src="images/logo_mappi.jpg" alt="Logo Mappi" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo_mappi.png';">
+    <!-- Pengepala Navigasi (Sticky Topbar) -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+            
+            <!-- Identitas Logo & Pemda -->
+            <a href="index.html" class="flex items-center gap-3.5 group text-decoration-none">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-800 p-0.5 shadow-lg shadow-emerald-900/30 flex items-center justify-center shrink-0">
+                    <img 
+                        src="images/logo_mappi.jpg" 
+                        alt="Logo Mappi" 
+                        class="w-full h-full object-cover rounded-[10px]"
+                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                    >
+                    <!-- Fallback SVG jika file gambar belum ada / gagal muat -->
+                    <svg class="hidden w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
                 </div>
                 <div class="flex flex-col">
-                    <h1 class="font-extrabold text-lg md:text-xl text-white tracking-wider leading-tight">DINSOS <span class="text-emerald-400">MAPPI</span></h1>
-                    <p class="text-[9px] text-gray-400 uppercase tracking-widest">Portal Resmi Pemerintah</p>
+                    <span class="font-extrabold text-base md:text-lg text-white tracking-wider leading-tight group-hover:text-emerald-400 transition-colors">
+                        DINSOS <span class="text-emerald-400">MAPPI</span>
+                    </span>
+                    <span class="text-[9px] md:text-[10px] text-gray-400 font-semibold tracking-widest uppercase">Portal Resmi Pemerintah</span>
                 </div>
-            </div>
-            <nav class="hidden md:flex gap-2 text-sm font-medium">
-                <a href="index.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Beranda</a>
-                <a href="profil.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Profil</a>
-                <a href="layanan-sop.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Layanan Publik</a>
-                <a href="data.html" class="glass-panel hover:bg-white/10 text-gray-300 px-4 py-2 rounded-lg transition-colors border-transparent hover:border-white/20">Data DTSEN</a>
-                <a href="data-pegawai.html" class="glass-button text-emerald-400 px-4 py-2 rounded-lg">Data Pegawai</a>
+            </a>
+
+            <!-- Navigasi Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-2 text-sm font-medium">
+                <a href="index.html" class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-4 py-2 rounded-lg transition-all">Beranda</a>
+                <a href="profil.html" class="text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all">Profil</a>
+                <a href="layanan-sop.html" class="text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all">Layanan Publik</a>
+                <a href="data.html" class="text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all">Data DTSEN</a>
+                <a href="#tabel-pegawai" class="text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all">Data Pegawai</a>
             </nav>
         </div>
     </header>
 
-    <main class="relative z-10 flex-grow p-6 overflow-y-auto flex flex-col gap-6">
+    <!-- Konten Utama Halaman -->
+    <main class="relative z-10 flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 flex flex-col gap-10">
         
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4 glass-panel rounded-2xl p-6 border-l-4 border-emerald-500">
-            <div>
-                <h2 class="text-2xl font-bold text-white mb-1">Direktori Pegawai Dinas Sosial</h2>
-                <p class="text-sm text-gray-400">Daftar Nominatif Pegawai Negeri Sipil Dinas Sosial Kabupaten Mappi Tahun 2026.</p>
+        <!-- Hero Section Beranda -->
+        <section class="glass-panel glow-border rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-emerald-500/30">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Pelayanan Terpadu & Inklusif
             </div>
-            <span class="bg-emerald-500/20 text-emerald-400 font-semibold px-4 py-2 rounded-lg text-sm border border-emerald-500/30">
-                Total: 48 Pegawai
-            </span>
-        </div>
 
-        <div class="glass-panel rounded-2xl overflow-hidden flex-grow flex flex-col">
-            <div class="overflow-x-auto flex-grow">
-                <table class="w-full text-left border-collapse whitespace-nowrap">
-                    <thead>
-                        <tr class="bg-white/5 text-emerald-400 text-sm uppercase tracking-widest border-b border-white/10">
-                            <th class="p-4 font-semibold">No</th>
-                            <th class="p-4 font-semibold">Nama Lengkap</th>
-                            <th class="p-4 font-semibold">NIP</th>
-                            <th class="p-4 font-semibold">Jabatan</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-300 text-sm divide-y divide-white/5">
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">1</td>
-                            <td class="p-4 font-medium text-white">Paskalna Sumaghai, S.Sos</td>
-                            <td class="p-4 font-mono text-gray-400">19780409 199712 2 001</td>
-                            <td class="p-4"><span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs border border-emerald-500/30">Kepala Dinas</span></td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">2</td>
-                            <td class="p-4 font-medium text-white">R.Markus E.Turlette,</td>
-                            <td class="p-4 font-mono text-gray-400">19710904 200312 1 009</td>
-                            <td class="p-4">Sekretaris</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">3</td>
-                            <td class="p-4 font-medium text-white">Simon S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19750612 200502 1 003</td>
-                            <td class="p-4">Kepala Bidang Rehabilitasi  Sosial</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">4</td>
-                            <td class="p-4 font-medium text-white">Yonatan Sulle, S.Sos</td>
-                            <td class="p-4 font-mono text-gray-400">19821228 201004 1 002</td>
-                            <td class="p-4">Kepala Bidang Perlindungan Dan Jaminan Sosial</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">5</td>
-                            <td class="p-4 font-medium text-white">Antonius Torop, S.Ap</td>
-                            <td class="p-4 font-mono text-gray-400">19770307 200112 1 005</td>
-                            <td class="p-4">Kepala Bidang Pemberdayaan Sosial</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">6</td>
-                            <td class="p-4 font-medium text-white">Kornely Sahulata, S.Pd</td>
-                            <td class="p-4 font-mono text-gray-400">19720826 200312 2 006</td>
-                            <td class="p-4">Kasubag. Umum Dan Kepegawaian</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">7</td>
-                            <td class="p-4 font-medium text-white">Richarda Yiptem, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19830325 200909 2 001</td>
-                            <td class="p-4">Kepala Seksi Pelayanan Kesejahteraan Anak Dan Lansia</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">8</td>
-                            <td class="p-4 font-medium text-white">Pacifikus A.D Yermogoin, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19770716 200701 1 021</td>
-                            <td class="p-4">Kasie. Pengembangan Potensi Dan Pembinaan Lembaga Kesejahteraan Sosial</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">9</td>
-                            <td class="p-4 font-medium text-white">Paskalina Atonggar, S.Sos</td>
-                            <td class="p-4 font-mono text-gray-400">19780722 201512 2 001</td>
-                            <td class="p-4">Kasie. Jaminan Sosial Dan  Penanggulangan Jaminan Sosial</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">10</td>
-                            <td class="p-4 font-medium text-white">Agustinus Matcing, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19791208 200605 1 002</td>
-                            <td class="p-4">Kasie. Rehabilitsi Tuna Sosial Dan Orang Dengan Kecacatan</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">11</td>
-                            <td class="p-4 font-medium text-white">Sebastianus S. Ohoiledjaan, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19760629 201004 1 002</td>
-                            <td class="p-4">Kasie Pemberdayaan Sosial,Kat & Daerah Tertinggal</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">12</td>
-                            <td class="p-4 font-medium text-white">Fransiskus Xaverius Suryadi, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19850408 201004 1 001</td>
-                            <td class="p-4">Kasubag. Keuangan Dan Program</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">13</td>
-                            <td class="p-4 font-medium text-white">Kansius Kani</td>
-                            <td class="p-4 font-mono text-gray-400">19800722 200112 1 001</td>
-                            <td class="p-4">Kasie. Perlindungan Bantuan Sosial</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">14</td>
-                            <td class="p-4 font-medium text-white">Gerardus Apom , S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19760405 200502 1 009</td>
-                            <td class="p-4">Kepa;A Dinas Sosial;</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">15</td>
-                            <td class="p-4 font-medium text-white">Feji Kristanto , S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19861002 201512 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">16</td>
-                            <td class="p-4 font-medium text-white">Yosep Taranda , S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19821003 201512 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">17</td>
-                            <td class="p-4 font-medium text-white">Andre Steven Kloatubun</td>
-                            <td class="p-4 font-mono text-gray-400">19841228 201512 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">18</td>
-                            <td class="p-4 font-medium text-white">Mariana Wuwurong</td>
-                            <td class="p-4 font-mono text-gray-400">19790603 200909 2 002</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">19</td>
-                            <td class="p-4 font-medium text-white">Krisnawati</td>
-                            <td class="p-4 font-mono text-gray-400">19770623 201512 2 002</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">20</td>
-                            <td class="p-4 font-medium text-white">Daniel Yaninressy</td>
-                            <td class="p-4 font-mono text-gray-400">19840908 201512 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">21</td>
-                            <td class="p-4 font-medium text-white">Ambrosius Minggu</td>
-                            <td class="p-4 font-mono text-gray-400">19770903 201512 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">22</td>
-                            <td class="p-4 font-medium text-white">Hendrikus Kornelis Marpemu</td>
-                            <td class="p-4 font-mono text-gray-400">19891010 201104 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">23</td>
-                            <td class="p-4 font-medium text-white">Ebet Yosep Mayak</td>
-                            <td class="p-4 font-mono text-gray-400">19810101 201512 1 002</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">25</td>
-                            <td class="p-4 font-medium text-white">Yulius Sarto Kainakaimu</td>
-                            <td class="p-4 font-mono text-gray-400">19920219 202012 1 011</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">26</td>
-                            <td class="p-4 font-medium text-white">Anna Yermogoin</td>
-                            <td class="p-4 font-mono text-gray-400">19740618 200312 2 007</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">27</td>
-                            <td class="p-4 font-medium text-white">Kansius Miyakaimu</td>
-                            <td class="p-4 font-mono text-gray-400">19851013 201512 1 001</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">28</td>
-                            <td class="p-4 font-medium text-white">Martha Khaer</td>
-                            <td class="p-4 font-mono text-gray-400">19820822 201512 2 002</td>
-                            <td class="p-4">Pelaksana</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">29</td>
-                            <td class="p-4 font-medium text-white">Inelce Wurkam, S.Sos</td>
-                            <td class="p-4 font-mono text-gray-400">19850727 202405 2 001</td>
-                            <td class="p-4">Penelaah Teknis Kebijakan</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">30</td>
-                            <td class="p-4 font-medium text-white">Longginus Tachjemu, Amd.Keu</td>
-                            <td class="p-4 font-mono text-gray-400">19861109 202405 1 001</td>
-                            <td class="p-4">Pengelola Data Dan Informasi</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">31</td>
-                            <td class="p-4 font-medium text-white">Oktovianus Fabianus Bapaimu</td>
-                            <td class="p-4 font-mono text-gray-400">19871013 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">32</td>
-                            <td class="p-4 font-medium text-white">Rito Tamyagai Barumak</td>
-                            <td class="p-4 font-mono text-gray-400">19890820 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">33</td>
-                            <td class="p-4 font-medium text-white">Inosensia Imaru</td>
-                            <td class="p-4 font-mono text-gray-400">19911041 020240 5 200</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">34</td>
-                            <td class="p-4 font-medium text-white">Margareta Wetino</td>
-                            <td class="p-4 font-mono text-gray-400">19930202 202405 2 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">35</td>
-                            <td class="p-4 font-medium text-white">Marinus Kajipu</td>
-                            <td class="p-4 font-mono text-gray-400">19900526 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">36</td>
-                            <td class="p-4 font-medium text-white">Selestina Bumagi</td>
-                            <td class="p-4 font-mono text-gray-400">19890923 202405 2 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">37</td>
-                            <td class="p-4 font-medium text-white">Veronika Igimu</td>
-                            <td class="p-4 font-mono text-gray-400">19860911 202405 2 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">38</td>
-                            <td class="p-4 font-medium text-white">Aksar</td>
-                            <td class="p-4 font-mono text-gray-400">19890214 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">39</td>
-                            <td class="p-4 font-medium text-white">Petrus Ronkoa</td>
-                            <td class="p-4 font-mono text-gray-400">19910313 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">40</td>
-                            <td class="p-4 font-medium text-white">Dominikus Paulus Kloatubun</td>
-                            <td class="p-4 font-mono text-gray-400">19910925 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">41</td>
-                            <td class="p-4 font-medium text-white">Figelius Kaimu</td>
-                            <td class="p-4 font-mono text-gray-400">19870203 202405 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">42</td>
-                            <td class="p-4 font-medium text-white">Pius On Igimu, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19800182 024211 0 050</td>
-                            <td class="p-4">Ahli Pratama- Analisis Kebijakan</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">43</td>
-                            <td class="p-4 font-medium text-white">Maria M. Bapaimu, S.Sos</td>
-                            <td class="p-4 font-mono text-gray-400">19800515 202421 2 013</td>
-                            <td class="p-4">Ahli Pratama- Analisis Kebijakan</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">44</td>
-                            <td class="p-4 font-medium text-white">Lambert A.M.T Titaley, S.Ip</td>
-                            <td class="p-4 font-mono text-gray-400">19830226 202421 1 008</td>
-                            <td class="p-4">Ahli Pratama- Analisis Kebijakan</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">45</td>
-                            <td class="p-4 font-mono text-white">Octovianus Tatuhay</td>
-                            <td class="p-4 font-mono text-gray-400">19700122 202421 1 001</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">46</td>
-                            <td class="p-4 font-medium text-white">Olavikus Rudi Kanimu</td>
-                            <td class="p-4 font-mono text-gray-400">19770511 202421 1 004</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">47</td>
-                            <td class="p-4 font-medium text-white">Veronika</td>
-                            <td class="p-4 font-mono text-gray-400">19825272 024242 0 140</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">48</td>
-                            <td class="p-4 font-medium text-white">Asri Wijaya</td>
-                            <td class="p-4 font-mono text-gray-400">19810812 202421 1 010</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition-colors">
-                            <td class="p-4">49</td>
-                            <td class="p-4 font-medium text-white">Petrus Besakin</td>
-                            <td class="p-4 font-mono text-gray-400">19840505 202421 1 019</td>
-                            <td class="p-4">Pengatministrasi Perkantoran</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 max-w-3xl mx-auto">
+                Selamat Datang di Portal Resmi <br>
+                <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Dinas Sosial Kabupaten Mappi</span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Mewujudkan masyarakat Kabupaten Mappi yang sejahtera, mandiri, dan berkeadilan sosial melalui pelayanan publik yang cepat, transparan, tepat sasaran, dan akuntabel.
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-4">
+                <a href="layanan-sop.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5">
+                    Pusat Layanan Sosial
+                </a>
+                <a href="data.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl glass-panel hover:bg-white/10 text-white font-semibold text-sm border border-white/20 transition-all transform hover:-translate-y-0.5">
+                    Cek Data DTSEN
+                </a>
+                <a href="#tabel-pegawai" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-gray-300 font-medium text-sm border border-slate-700/60 transition-all">
+                    Lihat Daftar Pegawai
+                </a>
             </div>
-        </div>
+        </section>
+
+        <!-- Bagian Tabel Direktori Pegawai -->
+        <section id="tabel-pegawai" class="flex flex-col gap-4">
+            
+            <!-- Kartu Ringkasan & Pencarian Instan -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 glass-panel rounded-2xl p-6 border-l-4 border-emerald-500">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-1">Direktori Pegawai Dinas Sosial</h2>
+                    <p class="text-xs sm:text-sm text-gray-400">Daftar Nominatif Pegawai Negeri Sipil Dinas Sosial Kabupaten Mappi Tahun 2026.</p>
+                </div>
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <input 
+                        type="text" 
+                        id="pencarianPegawai" 
+                        placeholder="Cari nama atau NIP..." 
+                        class="w-full md:w-64 px-4 py-2 rounded-lg bg-slate-900/80 border border-white/15 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                        onkeyup="filterTabelPegawai()"
+                    >
+                    <span class="bg-emerald-500/20 text-emerald-400 font-semibold px-3.5 py-2 rounded-lg text-xs sm:text-sm border border-emerald-500/30 shrink-0">
+                        Total: 48 Pegawai
+                    </span>
+                </div>
+            </div>
+
+            <!-- Tabel Data Pegawai Responsif -->
+            <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-xl">
+                <div class="overflow-x-auto max-h-[600px] overflow-y-auto">
+                    <table class="w-full text-left border-collapse whitespace-nowrap" id="daftarTabelPegawai">
+                        <thead class="sticky top-0 z-20 bg-slate-900 border-b border-white/15">
+                            <tr class="text-emerald-400 text-xs uppercase tracking-wider">
+                                <th class="p-4 font-semibold w-16">No</th>
+                                <th class="p-4 font-semibold">Nama Lengkap</th>
+                                <th class="p-4 font-semibold">NIP</th>
+                                <th class="p-4 font-semibold">Jabatan</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300 text-sm divide-y divide-white/5">
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">1</td>
+                                <td class="p-4 font-semibold text-white">Paskalna Sumaghai, S.Sos</td>
+                                <td class="p-4 font-mono text-gray-400">19780409 199712 2 001</td>
+                                <td class="p-4"><span class="bg-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded-md text-xs font-semibold border border-emerald-500/30">Kepala Dinas</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">2</td>
+                                <td class="p-4 font-semibold text-white">R.Markus E.Turlette,</td>
+                                <td class="p-4 font-mono text-gray-400">19710904 200312 1 009</td>
+                                <td class="p-4 text-gray-200">Sekretaris</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">3</td>
+                                <td class="p-4 font-semibold text-white">Simon S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19750612 200502 1 003</td>
+                                <td class="p-4 text-gray-200">Kepala Bidang Rehabilitasi Sosial</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">4</td>
+                                <td class="p-4 font-semibold text-white">Yonatan Sulle, S.Sos</td>
+                                <td class="p-4 font-mono text-gray-400">19821228 201004 1 002</td>
+                                <td class="p-4 text-gray-200">Kepala Bidang Perlindungan Dan Jaminan Sosial</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">5</td>
+                                <td class="p-4 font-semibold text-white">Antonius Torop, S.Ap</td>
+                                <td class="p-4 font-mono text-gray-400">19770307 200112 1 005</td>
+                                <td class="p-4 text-gray-200">Kepala Bidang Pemberdayaan Sosial</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">6</td>
+                                <td class="p-4 font-semibold text-white">Kornely Sahulata, S.Pd</td>
+                                <td class="p-4 font-mono text-gray-400">19720826 200312 2 006</td>
+                                <td class="p-4 text-gray-200">Kasubag. Umum Dan Kepegawaian</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">7</td>
+                                <td class="p-4 font-semibold text-white">Richarda Yiptem, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19830325 200909 2 001</td>
+                                <td class="p-4 text-gray-200">Kepala Seksi Pelayanan Kesejahteraan Anak Dan Lansia</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">8</td>
+                                <td class="p-4 font-semibold text-white">Pacifikus A.D Yermogoin, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19770716 200701 1 021</td>
+                                <td class="p-4 text-gray-200">Kasie. Pengembangan Potensi Dan Pembinaan Lembaga Kesejahteraan Sosial</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">9</td>
+                                <td class="p-4 font-semibold text-white">Paskalina Atonggar, S.Sos</td>
+                                <td class="p-4 font-mono text-gray-400">19780722 201512 2 001</td>
+                                <td class="p-4 text-gray-200">Kasie. Jaminan Sosial Dan Penanggulangan Jaminan Sosial</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">10</td>
+                                <td class="p-4 font-semibold text-white">Agustinus Matcing, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19791208 200605 1 002</td>
+                                <td class="p-4 text-gray-200">Kasie. Rehabilitasi Tuna Sosial Dan Orang Dengan Kecacatan</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">11</td>
+                                <td class="p-4 font-semibold text-white">Sebastianus S. Ohoiledjaan, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19760629 201004 1 002</td>
+                                <td class="p-4 text-gray-200">Kasie Pemberdayaan Sosial, KAT & Daerah Tertinggal</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">12</td>
+                                <td class="p-4 font-semibold text-white">Fransiskus Xaverius Suryadi, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19850408 201004 1 001</td>
+                                <td class="p-4 text-gray-200">Kasubag. Keuangan Dan Program</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">13</td>
+                                <td class="p-4 font-semibold text-white">Kansius Kani</td>
+                                <td class="p-4 font-mono text-gray-400">19800722 200112 1 001</td>
+                                <td class="p-4 text-gray-200">Kasie. Perlindungan Bantuan Sosial</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">14</td>
+                                <td class="p-4 font-semibold text-white">Gerardus Apom, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19760405 200502 1 009</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">15</td>
+                                <td class="p-4 font-semibold text-white">Feji Kristanto, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19861002 201512 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">16</td>
+                                <td class="p-4 font-semibold text-white">Yosep Taranda, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19821003 201512 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">17</td>
+                                <td class="p-4 font-semibold text-white">Andre Steven Kloatubun</td>
+                                <td class="p-4 font-mono text-gray-400">19841228 201512 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">18</td>
+                                <td class="p-4 font-semibold text-white">Mariana Wuwurong</td>
+                                <td class="p-4 font-mono text-gray-400">19790603 200909 2 002</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">19</td>
+                                <td class="p-4 font-semibold text-white">Krisnawati</td>
+                                <td class="p-4 font-mono text-gray-400">19770623 201512 2 002</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">20</td>
+                                <td class="p-4 font-semibold text-white">Daniel Yaninressy</td>
+                                <td class="p-4 font-mono text-gray-400">19840908 201512 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">21</td>
+                                <td class="p-4 font-semibold text-white">Ambrosius Minggu</td>
+                                <td class="p-4 font-mono text-gray-400">19770903 201512 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">22</td>
+                                <td class="p-4 font-semibold text-white">Hendrikus Kornelis Marpemu</td>
+                                <td class="p-4 font-mono text-gray-400">19891010 201104 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">23</td>
+                                <td class="p-4 font-semibold text-white">Ebet Yosep Mayak</td>
+                                <td class="p-4 font-mono text-gray-400">19810101 201512 1 002</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">24</td>
+                                <td class="p-4 font-semibold text-white">Yulius Sarto Kainakaimu</td>
+                                <td class="p-4 font-mono text-gray-400">19920219 202012 1 011</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">25</td>
+                                <td class="p-4 font-semibold text-white">Anna Yermogoin</td>
+                                <td class="p-4 font-mono text-gray-400">19740618 200312 2 007</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">26</td>
+                                <td class="p-4 font-semibold text-white">Kansius Miyakaimu</td>
+                                <td class="p-4 font-mono text-gray-400">19851013 201512 1 001</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">27</td>
+                                <td class="p-4 font-semibold text-white">Martha Khaer</td>
+                                <td class="p-4 font-mono text-gray-400">19820822 201512 2 002</td>
+                                <td class="p-4 text-gray-200">Pelaksana</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">28</td>
+                                <td class="p-4 font-semibold text-white">Inelce Wurkam, S.Sos</td>
+                                <td class="p-4 font-mono text-gray-400">19850727 202405 2 001</td>
+                                <td class="p-4 text-gray-200">Penelaah Teknis Kebijakan</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">29</td>
+                                <td class="p-4 font-semibold text-white">Longginus Tachjemu, Amd.Keu</td>
+                                <td class="p-4 font-mono text-gray-400">19861109 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengelola Data Dan Informasi</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">30</td>
+                                <td class="p-4 font-semibold text-white">Oktovianus Fabianus Bapaimu</td>
+                                <td class="p-4 font-mono text-gray-400">19871013 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">31</td>
+                                <td class="p-4 font-semibold text-white">Rito Tamyagai Barumak</td>
+                                <td class="p-4 font-mono text-gray-400">19890820 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">32</td>
+                                <td class="p-4 font-semibold text-white">Inosensia Imaru</td>
+                                <td class="p-4 font-mono text-gray-400">19911014 202405 2 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">33</td>
+                                <td class="p-4 font-semibold text-white">Margareta Wetino</td>
+                                <td class="p-4 font-mono text-gray-400">19930202 202405 2 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">34</td>
+                                <td class="p-4 font-semibold text-white">Marinus Kajipu</td>
+                                <td class="p-4 font-mono text-gray-400">19900526 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">35</td>
+                                <td class="p-4 font-semibold text-white">Selestina Bumagi</td>
+                                <td class="p-4 font-mono text-gray-400">19890923 202405 2 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">36</td>
+                                <td class="p-4 font-semibold text-white">Veronika Igimu</td>
+                                <td class="p-4 font-mono text-gray-400">19860911 202405 2 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">37</td>
+                                <td class="p-4 font-semibold text-white">Aksar</td>
+                                <td class="p-4 font-mono text-gray-400">19890214 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">38</td>
+                                <td class="p-4 font-semibold text-white">Petrus Ronkoa</td>
+                                <td class="p-4 font-mono text-gray-400">19910313 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">39</td>
+                                <td class="p-4 font-semibold text-white">Dominikus Paulus Kloatubun</td>
+                                <td class="p-4 font-mono text-gray-400">19910925 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">40</td>
+                                <td class="p-4 font-semibold text-white">Figelius Kaimu</td>
+                                <td class="p-4 font-mono text-gray-400">19870203 202405 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">41</td>
+                                <td class="p-4 font-semibold text-white">Pius On Igimu, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19800118 202421 1 005</td>
+                                <td class="p-4 text-gray-200">Ahli Pratama - Analisis Kebijakan</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">42</td>
+                                <td class="p-4 font-semibold text-white">Maria M. Bapaimu, S.Sos</td>
+                                <td class="p-4 font-mono text-gray-400">19800515 202421 2 013</td>
+                                <td class="p-4 text-gray-200">Ahli Pratama - Analisis Kebijakan</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">43</td>
+                                <td class="p-4 font-semibold text-white">Lambert A.M.T Titaley, S.Ip</td>
+                                <td class="p-4 font-mono text-gray-400">19830226 202421 1 008</td>
+                                <td class="p-4 text-gray-200">Ahli Pratama - Analisis Kebijakan</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">44</td>
+                                <td class="p-4 font-semibold text-white">Octovianus Tatuhay</td>
+                                <td class="p-4 font-mono text-gray-400">19700122 202421 1 001</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">45</td>
+                                <td class="p-4 font-semibold text-white">Olavikus Rudi Kanimu</td>
+                                <td class="p-4 font-mono text-gray-400">19770511 202421 1 004</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">46</td>
+                                <td class="p-4 font-semibold text-white">Veronika</td>
+                                <td class="p-4 font-mono text-gray-400">19820527 202421 2 014</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">47</td>
+                                <td class="p-4 font-semibold text-white">Asri Wijaya</td>
+                                <td class="p-4 font-mono text-gray-400">19810812 202421 1 010</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 text-gray-400">48</td>
+                                <td class="p-4 font-semibold text-white">Petrus Besakin</td>
+                                <td class="p-4 font-mono text-gray-400">19840505 202421 1 019</td>
+                                <td class="p-4 text-gray-200">Pengadministrasi Perkantoran</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 glass-panel border-t border-white/10 py-6 text-center text-xs text-gray-400 mt-12">
+        <p>&copy; 2026 Dinas Sosial Kabupaten Mappi. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- Skrip Pencarian Cepat -->
+    <script>
+        function filterTabelPegawai() {
+            var input = document.getElementById("pencarianPegawai");
+            var filter = input.value.toLowerCase();
+            var tabel = document.getElementById("daftarTabelPegawai");
+            var baris = tabel.getElementsByTagName("tr");
+
+            for (var i = 1; i < baris.length; i++) {
+                var tdNama = baris[i].getElementsByTagName("td")[1];
+                var tdNip = baris[i].getElementsByTagName("td")[2];
+                var tdJabatan = baris[i].getElementsByTagName("td")[3];
+                
+                if (tdNama || tdNip || tdJabatan) {
+                    var teksNama = tdNama.textContent || tdNama.innerText;
+                    var teksNip = tdNip.textContent || tdNip.innerText;
+                    var teksJabatan = tdJabatan.textContent || tdJabatan.innerText;
+
+                    if (teksNama.toLowerCase().indexOf(filter) > -1 || 
+                        teksNip.toLowerCase().indexOf(filter) > -1 || 
+                        teksJabatan.toLowerCase().indexOf(filter) > -1) {
+                        baris[i].style.display = "";
+                    } else {
+                        baris[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
