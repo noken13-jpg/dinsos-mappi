@@ -159,7 +159,7 @@
             </div>
         </section>
 
-        <!-- BAGIAN 2: KILAS INFORMASI & KEGIATAN SOSIAL TERKINI (BREAKING NEWS) -->
+        <!-- BAGIAN 2: KILAS INFORMASI & KEGIATAN SOSIAL TERKINI (TERHUBUNG KE GOOGLE SHEETS) -->
         <section class="flex flex-col gap-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-amber-500/20 pb-4">
                 <div class="flex items-center gap-3">
@@ -168,79 +168,20 @@
                         Kilas Informasi & Kegiatan Sosial Terkini
                     </h3>
                 </div>
-                <span class="text-xs uppercase tracking-widest text-amber-300/80 font-sans">Dokumentasi Pelayanan Publik 2026</span>
+                <span class="text-xs uppercase tracking-widest text-amber-300/80 font-sans">Pembaruan Langsung Lapangan 2026</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Berita 1 -->
-                <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
-                        <img src="images/Kota Rawah.jpg" alt="Verifikasi Lapangan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='Kota Rawah.jpg';">
-                        <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                            Penyaluran Bantuan
-                        </span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow justify-between gap-3">
-                        <div>
-                            <span class="text-[11px] text-gray-400 font-sans">Wilayah Kabupaten Mappi • Terkini</span>
-                            <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
-                                Monitoring dan Verifikasi Lapangan Calon Penerima Bantuan Sosial Terpadu
-                            </h4>
-                        </div>
-                        <p class="text-xs text-gray-400 font-sans line-clamp-2">
-                            Tim teknis dinas sosial melaksanakan peninjauan data langsung untuk menjamin keakuratan penerima manfaat.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Berita 2 -->
-                <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
-                        <img src="images/ibu_kadis.jpg" alt="Arahan Pimpinan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='images/Kota Rawah.jpg';">
-                        <span class="absolute top-3 left-3 bg-emerald-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                            Kebijakan Publik
-                        </span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow justify-between gap-3">
-                        <div>
-                            <span class="text-[11px] text-gray-400 font-sans">Aula Dinas Sosial • Terkini</span>
-                            <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
-                                Penguatan Tata Kelola Data Kesejahteraan Sosial Bersama Seluruh Kepala Bidang
-                            </h4>
-                        </div>
-                        <p class="text-xs text-gray-400 font-sans line-clamp-2">
-                            Rapat koordinasi berkala guna mematangkan validasi data DTSEN di seluruh distrik Kabupaten Mappi.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Berita 3 -->
-                <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
-                    <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
-                        <img src="images/Kota Rawah.jpg" alt="Program Rehabilitasi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-3 left-3 bg-cyan-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                            Rehabilitasi Sosial
-                        </span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow justify-between gap-3">
-                        <div>
-                            <span class="text-[11px] text-gray-400 font-sans">Layanan Lapangan • Terkini</span>
-                            <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
-                                Peninjauan Kelayakan Hunian dan Asistensi Sosial Disabilitas & Lanjut Usia
-                            </h4>
-                        </div>
-                        <p class="text-xs text-gray-400 font-sans line-clamp-2">
-                            Layanan proaktif jemput bola dalam pendataan warga rentan yang membutuhkan bantuan kedaruratan.
-                        </p>
-                    </div>
-                </article>
+            <!-- Kontainer Kartu Berita Dinamis -->
+            <div id="beritaContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="col-span-1 md:col-span-3 text-center py-12 text-gray-400 font-sans text-sm">
+                    <span class="inline-block animate-spin mr-2">⟳</span> Memuat kegiatan terkini dari pusat data...
+                </div>
             </div>
         </section>
 
         <!-- BAGIAN 3: STRUKTUR ORGANISASI RESMI BERFOTO -->
         <section class="flex flex-col gap-8 pt-4">
             
-            <!-- Judul Seksi Struktur -->
             <div class="text-center mb-4">
                 <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20">
                     Pimpinan & Tata Kelola Instansi
@@ -395,18 +336,13 @@
 
                 </div>
 
-                <!-- TINGKAT 4: PARA KEPALA SEKSI (KASIE PELAKSANA) -->
+                <!-- TINGKAT 4: PARA KEPALA SEKSI (KASIE) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl">
                     
                     <!-- Kasie Pemberdayaan Sosial KAT -->
                     <div class="glass-card p-4 rounded-xl flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
-                            <img 
-                                src="images/Sebastianus S. Ohoiledjaan, S.IP.jpg" 
-                                alt="Sebastianus S. Ohoiledjaan" 
-                                class="w-full h-full object-cover" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=Sebastianus+Ohoiledjaan&background=1e293b&color=cbd5e1';"
-                            >
+                            <img src="images/Sebastianus S. Ohoiledjaan, S.IP.jpg" alt="Sebastianus S. Ohoiledjaan" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Sebastianus+Ohoiledjaan&background=1e293b&color=cbd5e1';">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Pemberdayaan Sosial KAT</span>
@@ -418,12 +354,7 @@
                     <!-- Kasie Perlindungan Potensi Lembaga -->
                     <div class="glass-card p-4 rounded-xl flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
-                            <img 
-                                src="images/Pacifikus A.D. Yermogoin, S.IP.jpg" 
-                                alt="Pasifikus A.D. Yermogoin" 
-                                class="w-full h-full object-cover" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=Pasifikus+Yermogoin&background=1e293b&color=cbd5e1';"
-                            >
+                            <img src="images/Pacifikus A.D. Yermogoin, S.IP.jpg" alt="Pasifikus A.D. Yermogoin" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Pasifikus+Yermogoin&background=1e293b&color=cbd5e1';">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Perlindungan Potensi</span>
@@ -435,12 +366,7 @@
                     <!-- Kasie Tuna Sosial & Kecacatan -->
                     <div class="glass-card p-4 rounded-xl flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
-                            <img 
-                                src="images/Agustinus Matcing, S.IP.jpg" 
-                                alt="Agustinus Matcing" 
-                                class="w-full h-full object-cover" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=Agustinus+Matcing&background=1e293b&color=cbd5e1';"
-                            >
+                            <img src="images/Agustinus Matcing, S.IP.jpg" alt="Agustinus Matcing" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Agustinus+Matcing&background=1e293b&color=cbd5e1';">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Rehabilitasi Disabilitas</span>
@@ -452,16 +378,11 @@
                     <!-- Kasie Anak & Lansia -->
                     <div class="glass-card p-4 rounded-xl flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
-                            <img 
-                                src="images/Richarda Yiptem, S.IP.jpg" 
-                                alt="Ricarda Yiptem" 
-                                class="w-full h-full object-cover" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=Ricarda+Yiptem&background=1e293b&color=cbd5e1';"
-                            >
+                            <img src="images/Richarda Yiptem, S.IP.jpg" alt="Ricarda Yiptem" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Ricarda+Yiptem&background=1e293b&color=cbd5e1';">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Kesejahteraan Anak & Lansia</span>
-                            <h6 class="text-xs font-bold text-white">Richarda Yiptem, S.IP</h6>
+                            <h6 class="text-xs font-bold text-white">Ricarda Yiptem, S.IP</h6>
                             <span class="text-[10px] text-gray-400 font-mono">19830325 200909 2 001</span>
                         </div>
                     </div>
@@ -469,12 +390,7 @@
                     <!-- Kasie Bantuan Sosial -->
                     <div class="glass-card p-4 rounded-xl flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
-                            <img 
-                                src="images/KANISIUS KANI.jpg" 
-                                alt="Kansius Kani" 
-                                class="w-full h-full object-cover" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=Kansius+Kani&background=1e293b&color=cbd5e1';"
-                            >
+                            <img src="images/KANISIUS KANI.jpg" alt="Kansius Kani" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Kansius+Kani&background=1e293b&color=cbd5e1';">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Perlindungan & Bansos</span>
@@ -486,12 +402,7 @@
                     <!-- Kasie Jamsos & Kemiskinan -->
                     <div class="glass-card p-4 rounded-xl flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
-                            <img 
-                                src="images/Paskalina Atonggar, S.Sos.jpg" 
-                                alt="Paskalina Atonggar" 
-                                class="w-full h-full object-cover" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=Paskalina+Atonggar&background=1e293b&color=cbd5e1';"
-                            >
+                            <img src="images/Paskalina Atonggar, S.Sos.jpg" alt="Paskalina Atonggar" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Paskalina+Atonggar&background=1e293b&color=cbd5e1';">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Jamsos & Kemiskinan</span>
@@ -529,6 +440,79 @@
                 imgElement.src = daftarJalur[indeksJalur];
             }
         }
+    </script>
+
+    <!-- Skrip Pemuat Berita Dinamis Otomatis dari Google Spreadsheet -->
+    <script>
+        const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbwrrHMG5AcC5cInF0i6H7Wd0G9cu7N98MuIvVC77O0UzCqYGpTnOgOSGutPNGL4uG4Vfg/exec";
+
+        async function muatBeritaDinsos() {
+            const container = document.getElementById("beritaContainer");
+            try {
+                const response = await fetch(GOOGLE_SHEET_API);
+                const data = await response.json();
+
+                // Ambil maksimal 3 berita terbaru yang statusnya PUBLISH
+                const beritaTerpilih = data.slice(0, 3);
+
+                if (beritaTerpilih.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-1 md:col-span-3 text-center py-8 glass-card rounded-2xl">
+                            <p class="text-gray-400 text-sm">Belum ada kegiatan yang dipublikasikan saat ini.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = beritaTerpilih.map(item => `
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+                        <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
+                            <img 
+                                src="${item.foto_url || 'images/Kota Rawah.jpg'}" 
+                                alt="${item.judul}" 
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                onerror="this.src='images/Kota Rawah.jpg';"
+                            >
+                            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                                ${item.kategori || 'Kegiatan Dinas'}
+                            </span>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+                            <div>
+                                <span class="text-[11px] text-gray-400 font-sans">${item.tanggal || 'Terkini'}</span>
+                                <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">
+                                    ${item.judul}
+                                </h4>
+                            </div>
+                            <p class="text-xs text-gray-400 font-sans line-clamp-2">
+                                ${item.ringkasan || ''}
+                            </p>
+                        </div>
+                    </article>
+                `).join('');
+
+            } catch (error) {
+                console.error("Gagal menarik data berita:", error);
+                // Tampilan cadangan jika API belum merespons
+                container.innerHTML = `
+                    <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
+                        <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
+                            <img src="images/Kota Rawah.jpg" alt="Verifikasi Lapangan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Penyaluran Bantuan</span>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+                            <div>
+                                <span class="text-[11px] text-gray-400 font-sans">Wilayah Kabupaten Mappi • Terkini</span>
+                                <h4 class="font-sans font-semibold text-white group-hover:text-amber-300 transition-colors text-base mt-1 line-clamp-2">Monitoring dan Penyaluran Bantuan Sosial di Distrik Obaa</h4>
+                            </div>
+                            <p class="text-xs text-gray-400 font-sans line-clamp-2">Dinas Sosial Kabupaten Mappi turun langsung ke lapangan guna memastikan bantuan sosial diterima oleh warga yang berhak.</p>
+                        </div>
+                    </article>
+                `;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", muatBeritaDinsos);
     </script>
 </body>
 </html>
