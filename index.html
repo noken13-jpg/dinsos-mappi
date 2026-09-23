@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Resmi Dinas Sosial Kabupaten Mappi</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Playfair Display, Cinzel, Inter, dan Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,6 +19,7 @@
                     fontFamily: {
                         sinoreta: ['"Playfair Display"', 'Cinzel', 'serif'],
                         sans: ['Inter', 'sans-serif'],
+                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
                     }
                 }
             }
@@ -31,7 +32,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Panel Kaca Mewah (Glassmorphism Gelap Berwibawa) */
+        /* Panel Kaca Elegan (Glassmorphism Gelap Berwibawa) */
         .glass-charismatic {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(10, 17, 30, 0.94) 100%);
             backdrop-filter: blur(20px);
@@ -62,7 +63,7 @@
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.55);
         }
 
-        /* Animasi Logo Berputar Setiap 6 Detik */
+        /* Animasi Logo Berputar Sumbu 3D Setiap 6 Detik */
         @keyframes spinLogo3D {
             0% {
                 transform: perspective(600px) rotateY(0deg);
@@ -87,13 +88,13 @@
 </head>
 <body class="bg-[#060b13] text-gray-200 antialiased min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <!-- Latar Belakang Wilayah Mappi -->
+    <!-- Latar Belakang Wilayah Kabupaten Mappi -->
     <div class="fixed inset-0 z-0 pointer-events-none">
         <div class="absolute inset-0 bg-gradient-to-b from-[#060b13]/95 via-[#060b13]/85 to-[#060b13] z-10"></div>
         <img src="images/Kota Rawah.jpg" alt="Latar Belakang Mappi" class="w-full h-full object-cover blur-[4px] opacity-35" onerror="this.src='Kota Rawah.jpg';">
     </div>
 
-    <!-- Pengepala Navigasi (Topbar) -->
+    <!-- Navigasi Atas (Header/Navbar) -->
     <header class="sticky top-0 z-50 bg-[#0a111e]/85 backdrop-blur-md border-b border-amber-500/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
             
@@ -116,7 +117,7 @@
                 </div>
             </a>
 
-            <!-- Navigasi Menu Desktop -->
+            <!-- Menu Navigasi Desktop -->
             <nav class="hidden md:flex items-center gap-2 text-xs uppercase tracking-wider font-medium font-sans">
                 <a href="index.html" class="border-b-2 border-amber-400 text-amber-300 px-3 py-2 font-semibold">Beranda</a>
                 <a href="profil.html" class="text-gray-300 hover:text-amber-300 px-3 py-2 transition-colors">Profil</a>
@@ -127,11 +128,12 @@
         </div>
     </header>
 
-    <!-- Konten Utama Halaman -->
-    <main class="relative z-10 flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 flex flex-col gap-12">
+    <!-- Konten Utama Portal -->
+    <main class="relative z-10 flex-grow max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 flex flex-col gap-16">
         
-        <!-- Hero Section Berwibawa -->
+        <!-- BAGIAN 1: HERO SECTION UTAMA -->
         <section class="max-w-4xl w-full mx-auto glass-charismatic rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden mt-4">
+            
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs tracking-widest uppercase mb-6 font-sans font-medium">
                 Integritas • Pelayanan • Kesejahteraan
             </div>
@@ -157,10 +159,8 @@
             </div>
         </section>
 
-        <!-- Breaking News & Galeri Kegiatan Lapangan (Permintaan Ibu Kadis) -->
+        <!-- BAGIAN 2: KILAS INFORMASI & KEGIATAN SOSIAL TERKINI (BREAKING NEWS) -->
         <section class="flex flex-col gap-6">
-            
-            <!-- Judul Seksi Kegiatan -->
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-amber-500/20 pb-4">
                 <div class="flex items-center gap-3">
                     <span class="w-3 h-3 rounded-full bg-amber-400 animate-ping"></span>
@@ -171,18 +171,11 @@
                 <span class="text-xs uppercase tracking-widest text-amber-300/80 font-sans">Dokumentasi Pelayanan Publik 2026</span>
             </div>
 
-            <!-- Tiga Kartu Dokumentasi Visual -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                <!-- Kartu Berita 1 -->
+                <!-- Berita 1 -->
                 <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
                     <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
-                        <img 
-                            src="images/Kota Rawah.jpg" 
-                            alt="Verifikasi Lapangan" 
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            onerror="this.src='Kota Rawah.jpg';"
-                        >
+                        <img src="images/Kota Rawah.jpg" alt="Verifikasi Lapangan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='Kota Rawah.jpg';">
                         <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
                             Penyaluran Bantuan
                         </span>
@@ -200,15 +193,10 @@
                     </div>
                 </article>
 
-                <!-- Kartu Berita 2 -->
+                <!-- Berita 2 -->
                 <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
                     <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
-                        <img 
-                            src="images/ibu_kadis.jpg" 
-                            alt="Arahan Pimpinan" 
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            onerror="this.src='CONTOH FOTO RUMAH DAN ...jpg';"
-                        >
+                        <img src="images/ibu_kadis.jpg" alt="Arahan Pimpinan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='CONTOH FOTO RUMAH DAN ...jpg';">
                         <span class="absolute top-3 left-3 bg-emerald-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
                             Kebijakan Publik
                         </span>
@@ -226,15 +214,10 @@
                     </div>
                 </article>
 
-                <!-- Kartu Berita 3 -->
+                <!-- Berita 3 -->
                 <article class="glass-card rounded-2xl overflow-hidden flex flex-col group">
                     <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
-                        <img 
-                            src="CONTOH FOTO RUMAH DAN ...jpg" 
-                            alt="Program Rehabilitasi" 
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            onerror="this.src='images/Kota Rawah.jpg';"
-                        >
+                        <img src="CONTOH FOTO RUMAH DAN ...jpg" alt="Program Rehabilitasi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='images/Kota Rawah.jpg';">
                         <span class="absolute top-3 left-3 bg-cyan-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
                             Rehabilitasi Sosial
                         </span>
@@ -251,14 +234,251 @@
                         </p>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- BAGIAN 3: STRUKTUR ORGANISASI RESMI BERFOTO -->
+        <section class="flex flex-col gap-8 pt-4">
+            
+            <!-- Judul Seksi Struktur -->
+            <div class="text-center mb-4">
+                <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20">
+                    Pimpinan & Tata Kelola Instansi
+                </span>
+                <h3 class="font-elegant text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide mt-3">
+                    Struktur Organisasi Dinas Sosial
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2 font-sans">
+                    Pemerintah Kabupaten Mappi — Bersama Membangun Kesejahteraan Sosial
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center gap-8">
+                
+                <!-- TINGKAT 1: KEPALA DINAS SOSIAL -->
+                <div class="w-full max-w-md glass-charismatic p-6 rounded-2xl border border-amber-400/50 shadow-2xl flex items-center gap-5">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-slate-800 shadow-lg">
+                        <img 
+                            src="images/ibu_kadis.jpg" 
+                            alt="Paskalina Sumaghai, S.Sos" 
+                            class="w-full h-full object-cover" 
+                            onerror="this.src='https://ui-avatars.com/api/?name=Paskalina+Sumaghai&background=d97706&color=fff';"
+                        >
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="inline-block w-max text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded border border-amber-500/30 uppercase tracking-wider">
+                            Kepala Dinas
+                        </span>
+                        <h4 class="text-lg font-bold text-white mt-1">Paskalina Sumaghai, S.Sos</h4>
+                        <p class="text-xs text-gray-400 font-mono">NIP: 19780409 199712 2 001</p>
+                        <p class="text-xs text-amber-200/80 mt-0.5">Pangkat/Gol: Pembina / IVa</p>
+                    </div>
+                </div>
+
+                <!-- TINGKAT 2: SEKRETARIAT & SUBBAGIAN -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-5xl">
+                    
+                    <!-- Kasubbag Umum & Kepegawaian -->
+                    <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shrink-0 bg-slate-800">
+                            <img 
+                                src="images/Kornely Sahulata, S.Pd.jpg" 
+                                alt="Kornely Sahulata, S.Pd" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.src='https://ui-avatars.com/api/?name=Kornely+Sahulata&background=028090&color=fff';"
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-emerald-400 uppercase font-semibold">Kasubbag Umum & Kepegawaian</span>
+                            <h5 class="text-sm font-bold text-white mt-0.5">Kornely Sahulata, S.Pd</h5>
+                            <p class="text-[11px] text-gray-400 font-mono">NIP: 19720823 200112 2 006</p>
+                            <p class="text-[11px] text-gray-400">Penata Tk.I / III/d</p>
+                        </div>
+                    </div>
+
+                    <!-- Sekretaris Dinas (Pusat Administrasi) -->
+                    <div class="glass-charismatic p-5 rounded-2xl border border-amber-400/40 shadow-xl flex items-center gap-4 bg-slate-900/90">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-slate-800 shadow">
+                            <img 
+                                src="images/R. Markus E. Turlette, S.Sos, M.Si.jpg" 
+                                alt="R. Markus E. Turlette, S.Sos., M.Si." 
+                                class="w-full h-full object-cover" 
+                                onerror="this.src='https://ui-avatars.com/api/?name=Markus+Turlette&background=d97706&color=fff';"
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="inline-block w-max text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2 py-0.5 rounded border border-amber-500/30 uppercase tracking-wider">
+                                Sekretaris
+                            </span>
+                            <h5 class="text-sm font-bold text-white mt-1">R. Markus E. Turlette, S.Sos., M.Si.</h5>
+                            <p class="text-[11px] text-gray-400 font-mono">NIP: 19710904 200312 1 009</p>
+                            <p class="text-[11px] text-amber-200/80">Pembina / IVa</p>
+                        </div>
+                    </div>
+
+                    <!-- Kasubbag Perencanaan & Keuangan -->
+                    <div class="glass-card p-5 rounded-2xl flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shrink-0 bg-slate-800">
+                            <img 
+                                src="images/Fransiskus Xaverius Suryadi, S.Ip.jpg" 
+                                alt="FX. Soeryadi, S.IP" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.src='https://ui-avatars.com/api/?name=FX+Soeryadi&background=028090&color=fff';"
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-emerald-400 uppercase font-semibold">Kasubbag Perencanaan & Keuangan</span>
+                            <h5 class="text-sm font-bold text-white mt-0.5">FX. Soeryadi, S.IP</h5>
+                            <p class="text-[11px] text-gray-400 font-mono">NIP: 19850408 201004 1 001</p>
+                            <p class="text-[11px] text-gray-400">Penata Muda Tk.I / III/b</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TINGKAT 3: TIGA KEPALA BIDANG (KABID) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-5xl">
+                    
+                    <!-- Kabid Pemberdayaan Sosial -->
+                    <div class="glass-card p-5 rounded-2xl flex items-center gap-4 border-t-2 border-t-amber-400/40">
+                        <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shrink-0 bg-slate-800">
+                            <img 
+                                src="images/Antonius Torop, S.AP.jpg" 
+                                alt="Antonius Torop, S.IP" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.src='https://ui-avatars.com/api/?name=Antonius+Torop&background=028090&color=fff';"
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-amber-300 uppercase font-semibold">Kabid Pemberdayaan Sosial</span>
+                            <h5 class="text-sm font-bold text-white mt-0.5">Antonius Torop, S.IP</h5>
+                            <p class="text-[11px] text-gray-400 font-mono">NIP: 19770307 200112 1 005</p>
+                            <p class="text-[11px] text-gray-400">Penata Tk.I / III/d</p>
+                        </div>
+                    </div>
+
+                    <!-- Kabid Rehabilitasi Sosial -->
+                    <div class="glass-card p-5 rounded-2xl flex items-center gap-4 border-t-2 border-t-amber-400/40">
+                        <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shrink-0 bg-slate-800">
+                            <img 
+                                src="images/Simon, S.IP.jpg" 
+                                alt="Simon, S.IP" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.src='https://ui-avatars.com/api/?name=Simon&background=028090&color=fff';"
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-amber-300 uppercase font-semibold">Kabid Rehabilitasi Sosial</span>
+                            <h5 class="text-sm font-bold text-white mt-0.5">Simon, S.IP</h5>
+                            <p class="text-[11px] text-gray-400 font-mono">NIP: 19750612 200502 1 003</p>
+                            <p class="text-[11px] text-gray-400">Pembina / IVa</p>
+                        </div>
+                    </div>
+
+                    <!-- Kabid Perlindungan & Jamsos -->
+                    <div class="glass-card p-5 rounded-2xl flex items-center gap-4 border-t-2 border-t-amber-400/40">
+                        <div class="w-14 h-14 rounded-full overflow-hidden border border-white/20 shrink-0 bg-slate-800">
+                            <img 
+                                src="images/Yonatan Sulle, S.Sos.jpg" 
+                                alt="Yonatan Sulle, ST" 
+                                class="w-full h-full object-cover" 
+                                onerror="this.src='https://ui-avatars.com/api/?name=Yonatan+Sulle&background=028090&color=fff';"
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] text-amber-300 uppercase font-semibold">Kabid Perlindungan & Jamsos</span>
+                            <h5 class="text-sm font-bold text-white mt-0.5">Yonatan Sulle, ST</h5>
+                            <p class="text-[11px] text-gray-400 font-mono">NIP: 19821228 201004 1 002</p>
+                            <p class="text-[11px] text-gray-400">Penata Tk.I / III/d</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TINGKAT 4: PARA KEPALA SEKSI (KASIE PELAKSANA) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl">
+                    
+                    <!-- Kasie Pemberdayaan Sosial KAT -->
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                            <img src="images/Sebastianus S. Ohoiledjaan, S.IP.jpg" alt="Sebastianus S. Ohoiledjaan" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Sebastianus+Ohoiledjaan&background=1e293b&color=cbd5e1';">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Pemberdayaan Sosial KAT</span>
+                            <h6 class="text-xs font-bold text-white">Sebastianus S. Ohoiledjaan, S.IP</h6>
+                            <span class="text-[10px] text-gray-400 font-mono">19770629 201012 1 002</span>
+                        </div>
+                    </div>
+
+                    <!-- Kasie Perlindungan Potensi Lembaga -->
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                            <img src="images/Pacifikus A.D Yermogoin, S.Ip.jpg" alt="Pasifikus A.D. Yermogoin" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Pasifikus+Yermogoin&background=1e293b&color=cbd5e1';">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Perlindungan Potensi</span>
+                            <h6 class="text-xs font-bold text-white">Pasifikus A.D. Yermogoin, S.IP</h6>
+                            <span class="text-[10px] text-gray-400 font-mono">19770716 200701 1 021</span>
+                        </div>
+                    </div>
+
+                    <!-- Kasie Tuna Sosial & Kecacatan -->
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                            <img src="images/Agustinus Matcing.jpg" alt="Agustinus Matcing" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Agustinus+Matcing&background=1e293b&color=cbd5e1';">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Rehabilitasi Disabilitas</span>
+                            <h6 class="text-xs font-bold text-white">Agustinus Matcing</h6>
+                            <span class="text-[10px] text-gray-400 font-mono">Penata Muda Tk.I / III/b</span>
+                        </div>
+                    </div>
+
+                    <!-- Kasie Anak & Lansia -->
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                            <img src="images/Richarda Yiptem, S.IP.jpg" alt="Ricarda Yiptem" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Ricarda+Yiptem&background=1e293b&color=cbd5e1';">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Kesejahteraan Anak & Lansia</span>
+                            <h6 class="text-xs font-bold text-white">Ricarda Yiptem, S.IP</h6>
+                            <span class="text-[10px] text-gray-400 font-mono">19830325 200909 2 001</span>
+                        </div>
+                    </div>
+
+                    <!-- Kasie Bantuan Sosial -->
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                            <img src="images/KANISIUS KANI.jpg" alt="Kansius Kani" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Kansius+Kani&background=1e293b&color=cbd5e1';">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Perlindungan & Bansos</span>
+                            <h6 class="text-xs font-bold text-white">Kansius Kani</h6>
+                            <span class="text-[10px] text-gray-400 font-mono">19800322 200112 1 001</span>
+                        </div>
+                    </div>
+
+                    <!-- Kasie Jamsos & Kemiskinan -->
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0 bg-slate-800">
+                            <img src="images/Paskalina Atonggar, S.Sos.jpg" alt="Paskalina Atonggar" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Paskalina+Atonggar&background=1e293b&color=cbd5e1';">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[9px] text-gray-400 uppercase font-semibold line-clamp-1">Kasie Jamsos & Kemiskinan</span>
+                            <h6 class="text-xs font-bold text-white">Paskalina Atonggar, S.Sos</h6>
+                            <span class="text-[10px] text-gray-400 font-mono">19780720 201512 2 001</span>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="relative z-10 border-t border-amber-500/10 py-6 text-center text-xs text-gray-500 font-sans mt-8">
+    <!-- Kaki Laman (Footer Resmi) -->
+    <footer class="relative z-10 border-t border-amber-500/10 py-6 text-center text-xs text-gray-400 font-sans mt-8 bg-[#0a111e]/90">
         <p>&copy; 2026 Dinas Sosial Kabupaten Mappi. Seluruh Hak Cipta Dilindungi.</p>
     </footer>
 
